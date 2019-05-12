@@ -16,28 +16,28 @@
                     <li class="nav-title">导航</li>
 
                     <li class="nav-item">
-                        <a href="/EduManagement/v0.3/index_teacher.jsp" class="nav-link active">
+                        <a href="/v0.3/main_page.jsp" class="nav-link active">
                             <i class="icon icon-speedometer"></i> 主页
                         </a>
                     </li>
 
                     <li class="nav-item nav-dropdown">
                         <a href="#" class="nav-link nav-dropdown-toggle">
-                            <i class="icon icon-target"></i> 成绩管理 <i class="fa fa-caret-left"></i>
+                            <i class="icon icon-target"></i> 创新成果展示 <i class="fa fa-caret-left"></i>
                         </a>
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="/EduManagement/v0.3/grade_teacher.jsp" class="nav-link">
-                                    <i class="icon icon-target"></i> 学生成绩操作
+                                <a href="/v0.3/grade_teacher.jsp" class="nav-link">
+                                    <i class="icon icon-target"></i> 本科生创新成果展示
                                 </a>
                             </li>                 
                         </ul>
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">   
-                                <a href="/EduManagement/v0.3/gradeadd_teacher.jsp" class="nav-link">
-                                    <i class="icon icon-target"></i> 学生成绩录入
+                                <a href="/v0.3/gradeadd_teacher.jsp" class="nav-link">
+                                    <i class="icon icon-target"></i> 研究生创新成果展示
                                 </a>
                             </li>                 
                         </ul>
@@ -45,21 +45,21 @@
 
                     <li class="nav-item nav-dropdown">
                         <a href="#" class="nav-link nav-dropdown-toggle">
-                            <i class="icon icon-energy"></i> 信息查询 <i class="fa fa-caret-left"></i>
+                            <i class="icon icon-energy"></i> 需求对接 <i class="fa fa-caret-left"></i>
                         </a>
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="/EduManagement/v0.3/info_teacher.jsp" class="nav-link">
-                                    <i class="icon icon-energy"></i> 教师信息
+                                <a href="/v0.3/info_teacher.jsp" class="nav-link">
+                                    <i class="icon icon-energy"></i> 需求对接
                                 </a>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="/EduManagement/v0.3/info_teaQurey.jsp" class="nav-link">
-                                    <i class="icon icon-energy"></i> 学生和班级信息
-                                </a>
-                            </li>
+                            <%--<li class="nav-item">--%>
+                                <%--<a href="/v0.3/info_teaQurey.jsp" class="nav-link">--%>
+                                    <%--<i class="icon icon-energy"></i> 学生和班级信息--%>
+                                <%--</a>--%>
+                            <%--</li>--%>
                         </ul>
                     </li>
 

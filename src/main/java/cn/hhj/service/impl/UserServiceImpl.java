@@ -36,4 +36,11 @@ public class UserServiceImpl implements UserService {
                 return null;
         }
     }
+
+    public int insert(User user) {
+        int flag = userMapper.insert(user);
+        return flag;
+    }
+
+
 }

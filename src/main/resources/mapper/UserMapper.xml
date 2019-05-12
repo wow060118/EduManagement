@@ -5,6 +5,8 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="account" jdbcType="VARCHAR" property="account" />
     <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="type" jdbcType="INTEGER" property="type" />
   </resultMap>
 
@@ -12,4 +14,20 @@
     SELECT * FROM `user`
     WHERE account = #{account} AND password = #{password}
   </select>
+
+  <insert id="insert" parameterType="cn.hhj.pojo.User">
+    INSERT INTO `user`(
+      account,
+      password,
+      phone,
+      email,
+      `type`
+    )VALUE(
+      #{account},
+      #{password},
+      #{phone},
+      #{email},
+      #{type}
+    )
+  </insert>
 </mapper>

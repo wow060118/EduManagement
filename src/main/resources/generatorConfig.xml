@@ -14,7 +14,7 @@
 
         <!-- 数据库连接信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost/eduManagement"
-                        userId="root" password="123456">
+                        userId="root" password="root">
         </jdbcConnection>
 
         <!-- 默认 false，把 JDBC DECIMAL 和 NUMERIC 类型解析为 Integer

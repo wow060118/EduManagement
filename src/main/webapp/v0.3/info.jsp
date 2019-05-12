@@ -15,25 +15,25 @@
                 <li class="nav-title">导航</li>
 
                 <li class="nav-item">
-                    <a href="/EduManagement/user/indexInfo" class="nav-link ">
+                    <a href="/user/indexInfo" class="nav-link ">
                         <i class="icon icon-speedometer"></i> 主页
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/EduManagement/teachersCourse/electiveList" class="nav-link">
+                    <a href="/teachersCourse/electiveList" class="nav-link">
                         <i class="icon icon-target"></i> 自主选课
                     </a>
                 </li>
                 </li>
                 <ul class="nav">
                     <li class="nav-item">
-                        <a href="/EduManagement/v0.3/grade.jsp" class="nav-link">
+                        <a href="/v0.3/grade.jsp" class="nav-link">
                             <i class="icon icon-energy"></i> 查询成绩
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="/EduManagement/studentsInfo/quireInfo" class="nav-link active">
+                        <a href="/studentsInfo/quireInfo" class="nav-link active">
                             <i class="icon icon-energy"></i> 查询学籍信息
                         </a>
                     </li>
