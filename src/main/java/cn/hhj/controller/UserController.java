@@ -46,6 +46,7 @@ public class UserController extends BaseController{
         if(userList.size() == 1){
             //账号密码正确，将用户信息存入session，用于后续用户相关操作
             session.setAttribute(BaseInfo.USER, userList.get(0));
+            System.out.println(JSON.toJSONString( userList.get(0)));
             //查询公告，并放入model
             List<Announcement> announcementList = announcementService.quire(new Announcement());
             model.addAttribute("announcementList",announcementList);

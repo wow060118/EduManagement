@@ -1,5 +1,6 @@
 <!doctype html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <%@ include file ="Resource.jsp"%>
@@ -28,7 +29,7 @@
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="/v0.3/grade_teacher.jsp" class="nav-link">
+                                <a href="/v0.3/under_create_pro.jsp" class="nav-link">
                                     <i class="icon icon-target"></i> 本科生创新成果展示
                                 </a>
                             </li>                 
@@ -36,7 +37,7 @@
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">   
-                                <a href="/v0.3/gradeadd_teacher.jsp" class="nav-link">
+                                <a href="/v0.3/post_create_pro.jsp" class="nav-link">
                                     <i class="icon icon-target"></i> 研究生创新成果展示
                                 </a>
                             </li>                 
@@ -50,7 +51,7 @@
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="/v0.3/info_teacher.jsp" class="nav-link">
+                                <a href="/v0.3/requier_pro.jsp" class="nav-link">
                                     <i class="icon icon-energy"></i> 需求对接
                                 </a>
                             </li>
@@ -82,8 +83,12 @@
                         <div class="card p-4">
                             <div class="card-body d-flex justify-content-between align-items-center">
                                 <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">用户名</span>
-                                    <span class="font-weight-light">班级</span>
+                                    <span class="h4 d-block font-weight-normal mb-2">${user.account}</span>
+                                    <span class="font-weight-light">${user.account}
+                                        <%--<c:if test="${user.type==0}">创新用户</c:if>--%>
+                                        <%--<c:if test="${user.type==1}">需求用户</c:if>--%>
+                                        <%--<c:if test="${user.type==2}">管理员</c:if>--%>
+                                    </span>
                                 </div>
 
                                 <div class="h2 text-muted">

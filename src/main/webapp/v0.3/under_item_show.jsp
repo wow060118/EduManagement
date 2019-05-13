@@ -1,0 +1,242 @@
+<!doctype html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="en">
+<head>
+    <%@ include file="Resource.jsp" %>
+    <style type="text/css">
+
+        .lunbo img {
+            width: 500px;
+            height: 400px;
+        }
+
+                 
+
+    </style>
+
+    <title>创新展示平台</title>
+    <link rel="stylesheet" href="/Static/jquery/1.11.3/jquery.min.js">
+
+</head>
+<body class="sidebar-fixed header-fixed">
+<div class="page-wrapper">
+    <%@include file="Head.jsp" %>
+
+    <div class="main-container">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-title">导航</li>
+
+                    <li class="nav-item">
+                        <a href="/v0.3/main_page.jsp" class="nav-link active">
+                            <i class="icon icon-speedometer"></i> 主页
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link nav-dropdown-toggle">
+                            <i class="icon icon-target"></i> 创新成果展示 <i class="fa fa-caret-left"></i>
+                        </a>
+
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/v0.3/under_create_pro.jsp" class="nav-link">
+                                    <i class="icon icon-target"></i> 本科生创新成果展示
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/v0.3/post_create_pro.jsp" class="nav-link">
+                                    <i class="icon icon-target"></i> 研究生创新成果展示
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link nav-dropdown-toggle">
+                            <i class="icon icon-energy"></i> 需求对接 <i class="fa fa-caret-left"></i>
+                        </a>
+
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/v0.3/requier_pro.jsp" class="nav-link">
+                                    <i class="icon icon-energy"></i> 需求对接
+                                </a>
+                            </li>
+
+                            <%--<li class="nav-item">--%>
+                            <%--<a href="/v0.3/info_teaQurey.jsp" class="nav-link">--%>
+                            <%--<i class="icon icon-energy"></i> 学生和班级信息--%>
+                            <%--</a>--%>
+                            <%--</li>--%>
+                        </ul>
+                    </li>
+
+                    <li class="nav-title">更多</li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link nav-dropdown-toggle">
+                            <i class="icon icon-umbrella"></i> 其他 <i class="fa fa-caret-left"></i>
+                        </a>
+
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                创新成果展示
+                            </div>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>标题：</th>
+                                            <th>迷宫小车</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tbody">
+                                        <tr>
+                                            <td>小组名称：</td>
+                                            <td>第一组</td>
+                                        </tr>
+                                        <tr>
+                                            <td>学校：</td>
+                                            <td>哈尔滨理工大学</td>
+                                        </tr>
+                                        <tr>
+                                            <td>电话：</td>
+                                            <td>18845042554</td>
+                                        </tr>
+                                        <tr>
+                                            <td>邮箱：</td>
+                                            <td>996015133@qq.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>学生姓名：</td>
+                                            <td>杨丰瑞，杨丰瑞，杨丰瑞</td>
+                                        </tr>
+                                        <tr>
+                                            <td>指导教师：</td>
+                                            <td>李成严</td>
+                                        </tr>
+                                        <tr>
+                                            <td>所需金钱：</td>
+                                            <td>5500</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>图片展示：</td>
+                                            <td>
+                                                <div id="lunbo" class="lunbo">
+                                                    <ul id="shidian_img">
+                                                        <li><img src="/pic/1.png"/></li>
+                                                        <li><img src="/pic/2.png"/></li>
+                                                        <li><img src="/pic/3.jpg"/></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>成果视频展示：</td>
+                                            <td>
+                                                <video width="602px" height="345px" controls="controls">
+
+                                                    <source src="/video/第一组视频.mp4" type="video/mp4"></source>
+
+                                                    <source src="/video/第一组视频.ogg" type="video/ogg"></source>
+
+                                                </video>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>附件：第一组迷宫小车.txt</td>
+                                            <td>
+                                            <a href="/file/第一组-迷宫小车.doc"
+                                               download="">点击下载</a>
+                                            </td>
+
+                                        </tr>
+                                        </tbody>
+
+                                        <tfoot>
+                                            <tr>
+                                                <button id="apply" class="btn btn-primary" onclick="apply()">
+                                                    申 请 项 目
+                                                </button>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<%@include file="JSResource.jsp" %>
+
+<script>
+    index = 0;
+
+    function show_img() {
+        imgs = document.getElementById("shidian_img").children;
+        for (i = 0; i < imgs.length; i++) {
+            imgs[i].style.display = "none";
+
+        }
+        imgs[index].style.display = "block";
+        index++;
+        if (index >= imgs.length) {
+            index = 0;
+
+        }
+
+    }
+
+    timer = setInterval(show_img, 1000); //建立周期定时器。
+    
+    function apply() {
+        //包装成JSON
+        var userId=1;
+        var underProId=0;
+        // ajax处理接收课程表
+        $.ajax({
+                url: "${pageContext.request.contextPath}/apply/create?userId="+userId+"&underProId="+underProId,
+                dataType:"json",
+                type: "post",
+                contentType: "application/json;charset=utf-8",
+                success: function (result) {
+                    console.log(result)
+                    code= result.code;
+                    if(code == 200){
+                        alert(result.msg)
+                        document.getElementById("apply").style.display='none';
+                    }
+                }
+            }
+        )
+    }
+</script>
+
+</body>
+</html>
