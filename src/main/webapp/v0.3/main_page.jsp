@@ -132,73 +132,49 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header bg-light">
-                                课表信息
-                            </div>
-    
-                            <div class="card-body">
-                                <div>
-                                    <table class="table table-hover">
-                                        <thead>
-                                        <tr>
-                                            <th>星期一</th>
-                                            <th>星期二</th>
-                                            <th>星期三</th>
-                                            <th>星期四</th>
-                                            <th>星期五</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>第一节</td>
-                                            <td>语文</td>
-                                            <td></td>
-                                            <td>数学</td>
-                                            <td>英语</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Google Pixel XL</td>
-                                            <td>99,542</td>
-                                            <td>$750</td>
-                                            <td>3%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>iPhone X</td>
-                                            <td>62,220</td>
-                                            <td>$1,200</td>
-                                            <td>0%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>OnePlus 5T</td>
-                                            <td>50,000</td>
-                                            <td>$650</td>
-                                            <td>5%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Google Nexus 6</td>
-                                            <td>400</td>
-                                            <td>$400</td>
-                                            <td>7%</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            创新成果展示
+                        </div>
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>成果完成人</th>
+                                        <th>标题</th>
+                                        <th>创建时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+                                    <tr>
+                                        <td>颜颐欣</td>
+                                        <td>具有自组网功能的人防电声报警控制器</td>
+                                        <td>2014.1.1</td>
+                                        <%--到时候添加方法--%>
+                                        <td onclick="details()">详情</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
 <%@include file="JSResource.jsp"%>
+
+<script type="text/javascript">
+    function details() {
+        window.location.href="/v0.3/achievement.jsp"
+    }
+
+</script>
 </body>
 </html>

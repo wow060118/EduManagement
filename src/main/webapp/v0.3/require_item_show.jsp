@@ -109,75 +109,40 @@
                                         </thead>
                                         <tbody id="tbody">
                                         <tr>
-                                            <td>小组名称：</td>
-                                            <td>第一组</td>
+                                            <td>公司名车给：</td>
+                                            <td>哈理工</td>
                                         </tr>
                                         <tr>
-                                            <td>学校：</td>
-                                            <td>哈尔滨理工大学</td>
+                                            <td>公司电话：</td>
+                                            <td>18846086414</td>
                                         </tr>
                                         <tr>
-                                            <td>电话：</td>
-                                            <td>18845042554</td>
-                                        </tr>
-                                        <tr>
-                                            <td>邮箱：</td>
+                                            <td>公司邮箱：</td>
                                             <td>996015133@qq.com</td>
                                         </tr>
                                         <tr>
-                                            <td>学生姓名：</td>
-                                            <td>杨丰瑞，杨丰瑞，杨丰瑞</td>
+                                            <td>需求简介：</td>
+                                            <td>该产品的自组网功能解决了现有警报系统的城市盲点问题，电声警报模块采用全数字功放模块，声音失真度底。警报控制器与警报器二和一，设备结构合理，集成度高，使系统更加紧凑、可靠、系统体积小、安装和维护更加简便。</p>
+                                                <p>采用嵌入式控制系统，可实现声音文件的存储及实时播放，实现各种警报的发布和各种控制功能，具有可靠性高，电路简洁，在线升级方便的优点。</p>
+                                                <p>具有遥控自动发布警报和人工手动发布警报两种发布方式；具有喊话、功放、监测、监听等功能</p>
+                                                <p>具有500-2000W可调功率供客户选择，采用交直流两种供电方式，交流断电时自动切换到直流供电。</p></td>
                                         </tr>
                                         <tr>
-                                            <td>指导教师：</td>
-                                            <td>李成严</td>
-                                        </tr>
-                                        <tr>
-                                            <td>所需金钱：</td>
-                                            <td>5500</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>图片展示：</td>
+                                            <td>附件：1.txt</td>
                                             <td>
-                                                <div id="lunbo" class="lunbo">
-                                                    <ul id="shidian_img">
-                                                        <li><img src="/pic/1.png"/></li>
-                                                        <li><img src="/pic/2.png"/></li>
-                                                        <li><img src="/pic/3.jpg"/></li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>成果视频展示：</td>
-                                            <td>
-                                                <video width="602px" height="345px" controls="controls">
-
-                                                    <source src="/video/第一组视频.mp4" type="video/mp4"></source>
-
-                                                    <source src="/video/第一组视频.ogg" type="video/ogg"></source>
-
-                                                </video>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>附件：第一组迷宫小车.txt</td>
-                                            <td>
-                                            <a href="/file/第一组-迷宫小车.doc"
-                                               download="">点击下载</a>
+                                                <a href="/file/require.txt"
+                                                   download="">点击下载</a>
                                             </td>
 
                                         </tr>
                                         </tbody>
 
                                         <tfoot>
-                                            <tr>
-                                                <button id="apply" class="btn btn-primary" onclick="apply()">
-                                                    申 请 项 目
-                                                </button>
-                                            </tr>
+                                        <tr>
+                                            <button id="apply" class="btn btn-primary" onclick="apply()">
+                                                申 请 项 目
+                                            </button>
+                                        </tr>
                                         </tfoot>
                                     </table>
                                 </div>
@@ -214,7 +179,7 @@
     }
 
     timer = setInterval(show_img, 1000); //建立周期定时器。
-    
+
     function apply() {
         //包装成JSON
         var userId=1;
