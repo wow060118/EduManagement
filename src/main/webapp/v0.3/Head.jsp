@@ -22,7 +22,9 @@
 
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header">账户信息</div>
-
+                <a href="/v0.3/create_pro.jsp" class="dropdown-item">
+                    <i class="fa fa-page4"></i> 创建
+                </a>
                 <a href="#" class="dropdown-item">
                     <i class="fa fa-user"></i> 个人信息
                 </a>
