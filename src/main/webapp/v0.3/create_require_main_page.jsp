@@ -54,12 +54,6 @@
                                     <i class="icon icon-energy"></i> 需求对接
                                 </a>
                             </li>
-
-                            <%--<li class="nav-item">--%>
-                            <%--<a href="/v0.3/info_teaQurey.jsp" class="nav-link">--%>
-                            <%--<i class="icon icon-energy"></i> 学生和班级信息--%>
-                            <%--</a>--%>
-                            <%--</li>--%>
                         </ul>
                     </li>
 
@@ -69,18 +63,39 @@
                         <a href="#" class="nav-link nav-dropdown-toggle">
                             <i class="icon icon-umbrella"></i> 其他 <i class="fa fa-caret-left"></i>
                         </a>
-
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/v0.3/my_pro.jsp" class="nav-link">
+                                    <i class="icon icon-energy"></i> 我的项目
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/v0.3/post_create_pro.jsp" class="nav-link">
+                                    <i class="icon icon-target"></i> 我申请的项目
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="/v0.3/post_create_pro.jsp" class="nav-link">
+                                    <i class="icon icon-target"></i> 交流
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
         </div>
+
         <div class="content">
             <div class="lowin">
                 <div class="lowin-wrapper">
                     <div class="lowin-box lowin-login">
                         <div class="lowin-box-inner">
                             <form action="/user/reg" method="post">
-                                <p>注册</p>
+                                <p>需求团队申请项目</p>
                                 <div class="lowin-group">
                                     <label>标题 </label>
                                     <input type="text" name="account" class="lowin-input">
