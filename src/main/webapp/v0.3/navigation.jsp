@@ -76,7 +76,7 @@
                 </ul>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/v0.3/my_chat.jsp" class="nav-link">
                             <i class="icon icon-target"></i> 交流
                         </a>
                     </li>

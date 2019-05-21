@@ -67,6 +67,7 @@
                                             <td>
                                                 <a onclick="do_support()"><i class="icon-eye-open"></i></a>
                                                 <a onclick="do_support()"><i class="icon-trash"></i></a>
+                                                <a onclick="do_support()"><i class="icon-pencil"></i></a>
                                             </td>
                                         </tr>
 

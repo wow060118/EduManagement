@@ -4,4 +4,3 @@
 <link rel="stylesheet" href="/Static/vendor/simple-line-icons/css/simple-line-icons.css">
 <link rel="stylesheet" href="/Static/vendor/font-awesome/css/fontawesome-all.min.css">
 <link rel="stylesheet" href="/Static/css/styles.css">
-<link rel="stylesheet" href="/Static/bootstrap/css/bootstrap.min.css">
