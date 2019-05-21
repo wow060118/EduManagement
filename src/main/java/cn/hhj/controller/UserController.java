@@ -53,7 +53,7 @@ public class UserController extends BaseController{
             //根据用户类型返回对应页面，并查询基础信息
             switch (userList.get(0).getType()){
                 case 2:
-                    return "/v0.3/index_admin";
+                    return "";
                 case 0:
                     return "/v0.3/main_page";
                 case 1:
