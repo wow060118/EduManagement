@@ -46,7 +46,7 @@
                                         </thead>
                                         <tbody id="tbody">
                                         <tr>
-                                            <td>公司名车给：</td>
+                                            <td>公司名称：</td>
                                             <td>哈理工</td>
                                         </tr>
                                         <tr>
