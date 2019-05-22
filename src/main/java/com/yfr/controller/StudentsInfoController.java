@@ -62,7 +62,7 @@ public class StudentsInfoController extends BaseController{
         if(null == user)
             return "error";
         StudentsInfo studentsInfo = new StudentsInfo();
-        studentsInfo.setUser_id(user.getId());
+        studentsInfo.setUser_id(user.getUid());
         List<StudentClassDepartmentPo> list = studentsInfoService.jointQuire(studentsInfo);
         model.addAttribute("studentClassDepartmentPo",list.get(0));
         return "info";

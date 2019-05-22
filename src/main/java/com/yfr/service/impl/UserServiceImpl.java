@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
         switch(user.getType()){
             case 2:
                 StudentsInfo studentsInfo = new StudentsInfo();
-                studentsInfo.setUser_id(user.getId());
+                studentsInfo.setUser_id(user.getUid());
                 return studentsInfoMapper.jointQuire(studentsInfo).get(0);
             default:
                 return null;

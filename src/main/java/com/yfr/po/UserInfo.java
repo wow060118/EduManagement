@@ -1,7 +1,8 @@
-package com.yfr.pojo;
+package com.yfr.po;
 
-public class User {
-    private Integer uid;
+public class UserInfo {
+
+    private String uid;
 
     private String account;
 
@@ -11,15 +12,8 @@ public class User {
 
     private String email;
 
-    private Integer type;
+    private String userType;
 
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer id) {
-        this.uid = id;
-    }
 
     public String getAccount() {
         return account;
@@ -37,14 +31,6 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -59,5 +45,21 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 }

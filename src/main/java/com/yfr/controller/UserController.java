@@ -1,7 +1,9 @@
 package com.yfr.controller;
 
 import com.yfr.BaseInfo;
+import com.yfr.enmus.UserEnums;
 import com.yfr.po.StudentClassDepartmentPo;
+import com.yfr.po.UserInfo;
 import com.yfr.pojo.Announcement;
 import com.yfr.pojo.StudentsInfo;
 import com.yfr.pojo.User;
@@ -46,6 +48,7 @@ public class UserController extends BaseController{
         if(userList.size() == 1){
             //账号密码正确，将用户信息存入session，用于后续用户相关操作
             session.setAttribute(BaseInfo.USER, userList.get(0));
+            session.setAttribute("userInfo",buildUser(userList.get(0)));
             System.out.println(JSON.toJSONString( userList.get(0)));
             //查询公告，并放入model
             List<Announcement> announcementList = announcementService.quire(new Announcement());
@@ -55,10 +58,11 @@ public class UserController extends BaseController{
                 case 2:
                     return "";
                 case 0:
+
                     return "/v0.3/main_page";
                 case 1:
                     StudentsInfo studentsInfo = new StudentsInfo();
-                    studentsInfo.setUser_id(userList.get(0).getId());
+                    studentsInfo.setUser_id(userList.get(0).getUid());
                     //查询基础信息并存入model
                     model.addAttribute("studentClassDepartmentPo",studentsInfoService.jointQuire(studentsInfo).get(0));
                     return "/v0.3/main_page";
@@ -101,6 +105,14 @@ public class UserController extends BaseController{
             return "redirect:/index.jsp";
         }
         return "/v0.3/register";
+    }
+
+    private UserInfo buildUser(User user){
+        UserInfo userInfo=new UserInfo();
+        userInfo.setAccount(user.getAccount());
+        userInfo.setUserType(UserEnums.fromCode(user.getType()).getDesc());
+        userInfo.setUid(user.getUid()+"");
+        return userInfo;
     }
 
 }

@@ -21,11 +21,9 @@
                         <div class="card p-4">
                             <div class="card-body d-flex justify-content-between align-items-center">
                                 <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">${user.account}</span>
-                                    <span class="font-weight-light">${user.account}
-                                        <%--<c:if test="${user.type==0}">创新用户</c:if>--%>
-                                        <%--<c:if test="${user.type==1}">需求用户</c:if>--%>
-                                        <%--<c:if test="${user.type==2}">管理员</c:if>--%>
+                                    <span id="uid" >${userInfo.uid}</span>
+                                    <span class="h4 d-block font-weight-normal mb-2">用户名称:${userInfo.account}</span>
+                                    <span class="font-weight-light">用户类型:${userInfo.userType}
                                     </span>
                                 </div>
 
@@ -109,9 +107,13 @@
 <%@include file="JSResource.jsp"%>
 
 <script type="text/javascript">
+    var uid = document.getElementById("uid").innerText;
+    console.log(uid);
+    window.localStorage.setItem("user",uid);
     function details() {
         window.location.href="/v0.3/achievement.jsp"
     }
+
 
 </script>
 </body>

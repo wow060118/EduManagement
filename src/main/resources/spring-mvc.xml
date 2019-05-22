@@ -11,7 +11,7 @@
        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
     <!-- 扫描web相关的bean -->
-    <context:component-scan base-package="cn.hhj.controller"/>
+    <context:component-scan base-package="com.yfr.controller"/>
 
     <!-- 开启SpringMVC注解模式 -->
     <mvc:annotation-driven/>
@@ -24,6 +24,13 @@
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"></property>
+        <property name="maxUploadSize" value="10485760000"></property>
+        <property name="maxInMemorySize" value="40960"></property>
+    </bean>
+
 
     <!-- 拦截器配置 -->
     <mvc:interceptors>

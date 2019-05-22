@@ -75,7 +75,7 @@ public class GradeController extends BaseController{
         User user = (User)session.getAttribute(BaseInfo.USER);
         StudentsInfo s1 = new StudentsInfo();
         //根据用户id查询到学生信息id
-        s1.setUser_id(user.getId());
+        s1.setUser_id(user.getUid());
         StudentsInfo studentsInfo = studentsInfoService.quire(s1).get(0);
         //用grade封装数据
         Grade grade = new Grade();

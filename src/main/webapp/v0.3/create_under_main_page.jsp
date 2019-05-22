@@ -17,11 +17,11 @@
                 <div class="lowin-wrapper">
                     <div class="lowin-box lowin-login">
                         <div class="lowin-box-inner">
-                            <form action="/user/reg" method="post">
+                            <form action="/procreate/create/under" method="post"  enctype="multipart/form-data" >
                                 <p>创新团队申请项目</p>
                                 <div class="lowin-group">
                                     <label>标题 </label>
-                                    <input type="text" name="account" class="lowin-input">
+                                    <input type="text" name="title" class="lowin-input">
                                 </div>
                                 <div class="lowin-group">
                                     <label>小组名称</label>
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="lowin-group">
                                     <label>学生姓名 </label>
-                                    <input type="text" name="students" class="lowin-input">
+                                    <input type="text" name="student" class="lowin-input">
                                 </div>
                                 <div class="lowin-group">
                                     <label>指导教师 </label>
@@ -59,7 +59,7 @@
 
                                 <div class="lowin-group">
                                     <label>图片 </label>
-                                    <input type="file" multiple id="f" type="file" name="f" onchange="change()" >
+                                    <input type="file" multiple id="picFile"  name="picFile" onchange="change()" >
                                     <img name="pic" id="preview" alt="" src="" name="pic" class="file_img" style="margin-top: 5px;margin-left: 12px; width: 158px; height: 230px;"/>
                                 </div>
 
@@ -67,9 +67,9 @@
                                     <label>附件 </label>
                                     <input type="file" name="file">
                                 </div>
-
+                                    <input id="uid" type="hidden" name="uid" value="1">
                                 <button id="reg" class="lowin-btn login-btn">
-                                    注 册
+                                    提 交
                                 </button>
 
                             </form>
@@ -84,9 +84,13 @@
 
 
 <script type="text/javascript">
+    $("#uid").val(localStorage.getItem("user"));
+
+    // document.getElementById("uid").value = localStorage.getItem("user")
+
     function change() {
         var pic = document.getElementById("preview"),
-            file = document.getElementById("f");
+            file = document.getElementById("picFile");
         //得到后缀名
         var ext=file.value.substring(file.value.lastIndexOf(".")+1).toLowerCase();
         // gif在IE浏览器暂时无法显示
