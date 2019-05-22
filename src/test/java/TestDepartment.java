@@ -1,5 +1,5 @@
-import cn.hhj.mapper.DepartmentMapper;
-import cn.hhj.pojo.Department;
+import com.yfr.mapper.DepartmentMapper;
+import com.yfr.pojo.Department;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

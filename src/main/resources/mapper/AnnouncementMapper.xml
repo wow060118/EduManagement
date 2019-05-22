@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.hhj.mapper.AnnouncementMapper">
-  <resultMap id="BaseResultMap" type="cn.hhj.pojo.Announcement">
+<mapper namespace="com.yfr.mapper.AnnouncementMapper">
+  <resultMap id="BaseResultMap" type="com.yfr.pojo.Announcement">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="tittle" jdbcType="VARCHAR" property="tittle" />
   </resultMap>
 
-  <insert id="add" parameterType="cn.hhj.pojo.Announcement">
+  <insert id="add" parameterType="com.yfr.pojo.Announcement">
     INSERT INTO announcement(
       tittle,
       text
@@ -16,20 +16,20 @@
     )
   </insert>
 
-  <delete id="deleteById" parameterType="cn.hhj.pojo.Announcement">
+  <delete id="deleteById" parameterType="com.yfr.pojo.Announcement">
     DELETE
     FROM announcement
     WHERE id = #{id}
   </delete>
 
-  <update id="update" parameterType="cn.hhj.pojo.Announcement">
+  <update id="update" parameterType="com.yfr.pojo.Announcement">
     UPDATE announcement SET
       tittle = #{tittle},
       text = #{text}
     WHERE id = #{id}
   </update>
 
-  <select id="quire" resultType="cn.hhj.pojo.Announcement">
+  <select id="quire" resultType="com.yfr.pojo.Announcement">
     SELECT *
     FROM announcement
     <where>

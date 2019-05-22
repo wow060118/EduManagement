@@ -1,5 +1,5 @@
-import cn.hhj.mapper.ClassMapper;
-import cn.hhj.pojo.Class;
+import com.yfr.mapper.ClassMapper;
+import com.yfr.pojo.Class;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

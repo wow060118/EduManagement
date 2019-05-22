@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.hhj.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="cn.hhj.pojo.User">
+<mapper namespace="com.yfr.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.yfr.pojo.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="account" jdbcType="VARCHAR" property="account" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -10,12 +10,12 @@
     <result column="type" jdbcType="INTEGER" property="type" />
   </resultMap>
 
-  <select id="quireByAccountPassWord" resultType="cn.hhj.pojo.User">
+  <select id="quireByAccountPassWord" resultType="com.yfr.pojo.User">
     SELECT * FROM `user`
     WHERE account = #{account} AND password = #{password}
   </select>
 
-  <insert id="insert" parameterType="cn.hhj.pojo.User">
+  <insert id="insert" parameterType="com.yfr.pojo.User">
     INSERT INTO `user`(
       account,
       password,

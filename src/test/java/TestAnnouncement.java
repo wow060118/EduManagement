@@ -1,15 +1,11 @@
-import cn.hhj.mapper.AnnouncementMapper;
-import cn.hhj.mapper.UserMapper;
-import cn.hhj.pojo.Announcement;
-import cn.hhj.pojo.User;
-import cn.hhj.service.AnnouncementService;
+import com.yfr.mapper.AnnouncementMapper;
+import com.yfr.pojo.Announcement;
+import com.yfr.service.AnnouncementService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.List;
 
 /**
  * @Author: SoFakeHuang

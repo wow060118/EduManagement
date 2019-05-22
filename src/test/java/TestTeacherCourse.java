@@ -1,7 +1,7 @@
-import cn.hhj.mapper.TeachersCourseMapper;
-import cn.hhj.po.TeacherCourseClassPo;
-import cn.hhj.pojo.Course;
-import cn.hhj.pojo.TeachersCourse;
+import com.yfr.mapper.TeachersCourseMapper;
+import com.yfr.po.TeacherCourseClassPo;
+import com.yfr.pojo.Course;
+import com.yfr.pojo.TeachersCourse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

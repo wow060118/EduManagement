@@ -1,6 +1,6 @@
-import cn.hhj.mapper.UserMapper;
-import cn.hhj.pojo.User;
-import cn.hhj.service.UserService;
+import com.yfr.mapper.UserMapper;
+import com.yfr.pojo.User;
+import com.yfr.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

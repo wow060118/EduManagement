@@ -1,6 +1,6 @@
-import cn.hhj.mapper.StudentsInfoMapper;
-import cn.hhj.pojo.StudentsInfo;
-import cn.hhj.service.StudentsInfoService;
+import com.yfr.mapper.StudentsInfoMapper;
+import com.yfr.pojo.StudentsInfo;
+import com.yfr.service.StudentsInfoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

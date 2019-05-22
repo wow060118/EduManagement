@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.hhj.mapper.GradeMapper">
+<mapper namespace="com.yfr.mapper.GradeMapper">
 
-    <resultMap id="BaseResultMap" type="cn.hhj.pojo.Grade">
+    <resultMap id="BaseResultMap" type="com.yfr.pojo.Grade">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="grade" jdbcType="INTEGER" property="grade" />
         <result column="students_info_id" jdbcType="INTEGER" property="students_info_id" />
         <result column="teachers_course_id" jdbcType="INTEGER" property="teachers_course_id" />
     </resultMap>
     
-    <resultMap id="GradeStudentsTeacherCourseMap" type="cn.hhj.po.GradeStudentsTeacherCoursePo" extends="BaseResultMap">
-        <association property="course" javaType="cn.hhj.pojo.Course">
+    <resultMap id="GradeStudentsTeacherCourseMap" type="com.yfr.po.GradeStudentsTeacherCoursePo" extends="BaseResultMap">
+        <association property="course" javaType="com.yfr.pojo.Course">
             <id column="course_id" javaType="INTEGER" property="id"/>
             <result column="course_name" property="name"/>
         </association>
 
-        <association property="teachersInfo" javaType="cn.hhj.pojo.TeachersInfo">
+        <association property="teachersInfo" javaType="com.yfr.pojo.TeachersInfo">
             <id column="teachers_info_id" javaType="INTEGER" property="id"/>
             <result column="teachers_info_name" property="name"/>
         </association>
 
     </resultMap>
 
-    <insert id="add" parameterType="cn.hhj.pojo.Grade">
+    <insert id="add" parameterType="com.yfr.pojo.Grade">
     INSERT INTO grade(
       grade,
       students_info_id,
@@ -34,13 +34,13 @@
     )
   </insert>
 
-    <delete id="deleteById" parameterType="cn.hhj.pojo.Grade">
+    <delete id="deleteById" parameterType="com.yfr.pojo.Grade">
     DELETE
     FROM grade
     WHERE id = #{id}
   </delete>
 
-    <update id="update" parameterType="cn.hhj.pojo.Grade">
+    <update id="update" parameterType="com.yfr.pojo.Grade">
     UPDATE grade
     <set>
         <if test="grade != null">
@@ -56,7 +56,7 @@
     WHERE id = #{id}
   </update>
 
-    <select id="quire" resultType="cn.hhj.pojo.Grade">
+    <select id="quire" resultType="com.yfr.pojo.Grade">
         SELECT *
         FROM grade
         <where>

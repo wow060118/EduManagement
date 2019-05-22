@@ -1,6 +1,6 @@
-import cn.hhj.mapper.GradeMapper;
-import cn.hhj.pojo.Grade;
-import cn.hhj.pojo.TeachersCourse;
+import com.yfr.mapper.GradeMapper;
+import com.yfr.pojo.Grade;
+import com.yfr.pojo.TeachersCourse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

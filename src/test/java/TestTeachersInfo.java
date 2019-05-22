@@ -1,5 +1,5 @@
-import cn.hhj.mapper.TeachersInfoMapper;
-import cn.hhj.pojo.TeachersInfo;
+import com.yfr.mapper.TeachersInfoMapper;
+import com.yfr.pojo.TeachersInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

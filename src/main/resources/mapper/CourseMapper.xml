@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.hhj.mapper.CourseMapper">
-  <resultMap id="BaseResultMap" type="cn.hhj.pojo.Course">
+<mapper namespace="com.yfr.mapper.CourseMapper">
+  <resultMap id="BaseResultMap" type="com.yfr.pojo.Course">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="hour" jdbcType="INTEGER" property="hour" />
@@ -9,7 +9,7 @@
     <result column="introduce" jdbcType="VARCHAR" property="introduce" />
   </resultMap>
 
-  <insert id="add" parameterType="cn.hhj.pojo.Course">
+  <insert id="add" parameterType="com.yfr.pojo.Course">
     INSERT INTO course(
       name,
       hour,
@@ -23,13 +23,13 @@
     )
   </insert>
 
-  <delete id="deleteById" parameterType="cn.hhj.pojo.Course">
+  <delete id="deleteById" parameterType="com.yfr.pojo.Course">
     DELETE
     FROM course
     WHERE id = #{id}
   </delete>
 
-  <update id="update" parameterType="cn.hhj.pojo.Course">
+  <update id="update" parameterType="com.yfr.pojo.Course">
     UPDATE course
     <set>
       <if test="name != null">
@@ -48,7 +48,7 @@
     WHERE id = #{id}
   </update>
 
-  <select id="quire" resultType="cn.hhj.pojo.Course">
+  <select id="quire" resultType="com.yfr.pojo.Course">
     SELECT *
     FROM course
     <where>

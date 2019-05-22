@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.hhj.mapper.StudentsInfoMapper">
-  <resultMap id="BaseResultMap" type="cn.hhj.pojo.StudentsInfo">
+<mapper namespace="com.yfr.mapper.StudentsInfoMapper">
+  <resultMap id="BaseResultMap" type="com.yfr.pojo.StudentsInfo">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="student_number" jdbcType="VARCHAR" property="student_number" />
@@ -25,18 +25,18 @@
       students_info.id_number AS id_number
   </sql>
 
-  <resultMap id="StudentClassDepartmentMap" type="cn.hhj.po.StudentClassDepartmentPo" extends="BaseResultMap">
-    <association property="aClass" javaType="cn.hhj.pojo.Class">
+  <resultMap id="StudentClassDepartmentMap" type="com.yfr.po.StudentClassDepartmentPo" extends="BaseResultMap">
+    <association property="aClass" javaType="com.yfr.pojo.Class">
       <id column="class_id" property="id"/>
       <result column="class_name" property="name"/>
     </association>
-    <association property="department" javaType="cn.hhj.pojo.Department">
+    <association property="department" javaType="com.yfr.pojo.Department">
       <id column="department_id" property="id"/>
       <result column="department_name" property="name"/>
     </association>
   </resultMap>
   
-  <insert id="add" parameterType="cn.hhj.pojo.StudentsInfo">
+  <insert id="add" parameterType="com.yfr.pojo.StudentsInfo">
     INSERT INTO students_info(
       name,
       student_number,
@@ -58,13 +58,13 @@
     )
   </insert>
 
-  <delete id="deleteById" parameterType="cn.hhj.pojo.StudentsInfo">
+  <delete id="deleteById" parameterType="com.yfr.pojo.StudentsInfo">
     DELETE
     FROM students_info
     WHERE id = #{id}
   </delete>
 
-  <update id="update" parameterType="cn.hhj.pojo.StudentsInfo">
+  <update id="update" parameterType="com.yfr.pojo.StudentsInfo">
     UPDATE students_info SET
       name = #{name},
       student_number = #{student_number},
@@ -77,7 +77,7 @@
     WHERE id = #{id}
   </update>
 
-  <select id="quire" resultType="cn.hhj.pojo.StudentsInfo">
+  <select id="quire" resultType="com.yfr.pojo.StudentsInfo">
     SELECT
       *
     FROM students_info
