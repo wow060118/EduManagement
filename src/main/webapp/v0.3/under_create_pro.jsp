@@ -77,7 +77,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <%@include file="page.jsp" %>
                 </div>
 
             </div>

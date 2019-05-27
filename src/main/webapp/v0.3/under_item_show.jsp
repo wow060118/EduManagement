@@ -79,9 +79,7 @@
                                             <td>
                                                 <div id="lunbo" class="lunbo">
                                                     <ul id="shidian_img">
-                                                        <li><img src="/pic/1.png"/></li>
-                                                        <li><img src="/pic/2.png"/></li>
-                                                        <li><img src="/pic/3.jpg"/></li>
+                                                        <li><img src="/pic/first.png"/></li>
                                                     </ul>
                                                 </div>
                                             </td>

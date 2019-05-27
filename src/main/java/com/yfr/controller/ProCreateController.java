@@ -75,11 +75,19 @@ public class ProCreateController extends BaseController {
         underCreateInfo.setUid(uid);
         System.out.println(JSON.toJSONString(underCreateInfo));
         int num = underCreateService.insert(underCreateInfo);
-        if (num > 0) {
+        if(num>0) {
             return inbound(null, "success");
-        } else {
+        }else {
             return failHandler("error");
         }
     }
 
+    @RequestMapping("/query/under")
+    @ResponseBody
+    public ResponsResult queryUnder(){
+
+
+
+        return inbound(null,"success");
+    }
 }

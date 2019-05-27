@@ -2,13 +2,10 @@ package com.yfr.controller;
 
 import com.yfr.BaseInfo;
 import com.yfr.enmus.UserEnums;
-import com.yfr.po.StudentClassDepartmentPo;
 import com.yfr.po.UserInfo;
 import com.yfr.pojo.Announcement;
-import com.yfr.pojo.StudentsInfo;
 import com.yfr.pojo.User;
 import com.yfr.service.AnnouncementService;
-import com.yfr.service.StudentsInfoService;
 import com.yfr.service.UserService;
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +23,6 @@ public class UserController extends BaseController{
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private StudentsInfoService studentsInfoService;
 
     @Autowired
     private AnnouncementService announcementService;
@@ -61,10 +56,10 @@ public class UserController extends BaseController{
 
                     return "/v0.3/main_page";
                 case 1:
-                    StudentsInfo studentsInfo = new StudentsInfo();
-                    studentsInfo.setUser_id(userList.get(0).getUid());
-                    //查询基础信息并存入model
-                    model.addAttribute("studentClassDepartmentPo",studentsInfoService.jointQuire(studentsInfo).get(0));
+//                    StudentsInfo studentsInfo = new StudentsInfo();
+//                    studentsInfo.setUser_id(userList.get(0).getUid());
+//                    //查询基础信息并存入model
+//                    model.addAttribute("studentClassDepartmentPo",studentsInfoService.jointQuire(studentsInfo).get(0));
                     return "/v0.3/main_page";
                 default:
                     model.addAttribute("msg","用户类型不明确");
@@ -79,7 +74,7 @@ public class UserController extends BaseController{
     @RequestMapping("/indexInfo")
     public String indexInfo(HttpSession session, Model model){
         User user = (User)session.getAttribute(BaseInfo.USER);
-        Object userInfo = userService.quireUserInfo(user);
+//        Object userInfo = userService.quireUserInfo(user);
 
         //查询公告，并放入model
         List<Announcement> announcementList = announcementService.quire(new Announcement());
@@ -88,8 +83,8 @@ public class UserController extends BaseController{
             case 0:
             case 1:
             case 2:
-                StudentClassDepartmentPo studentClassDepartmentPo = (StudentClassDepartmentPo)userInfo;
-                model.addAttribute("studentClassDepartmentPo",studentClassDepartmentPo);
+//                StudentClassDepartmentPo studentClassDepartmentPo = (StudentClassDepartmentPo)userInfo;
+//                model.addAttribute("studentClassDepartmentPo",studentClassDepartmentPo);
                 return "/v0.3/index";
             default:
                 return "redirect:/index.jsp";
