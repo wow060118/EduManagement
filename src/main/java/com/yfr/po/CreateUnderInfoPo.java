@@ -3,17 +3,20 @@ package com.yfr.po;
 import java.io.File;
 
 public class CreateUnderInfoPo {
+    private int ucid;
     private String title;
     private String teamName;
     private String school;
-    private File picFile;
+    private String picFile;
     private Long money;
     private String student;
     private String teacher;
-    private File video;
+    private String video;
+    private String videoOgg;
     private String phone;
     private String email;
-    private File file;
+    private String file;
+    private String fileName;
 
 
     public String getTitle() {
@@ -40,13 +43,6 @@ public class CreateUnderInfoPo {
         this.school = school;
     }
 
-    public File getPicFile() {
-        return picFile;
-    }
-
-    public void setPicFile(File picFile) {
-        this.picFile = picFile;
-    }
 
     public Long getMoney() {
         return money;
@@ -72,13 +68,7 @@ public class CreateUnderInfoPo {
         this.teacher = teacher;
     }
 
-    public File getVideo() {
-        return video;
-    }
 
-    public void setVideo(File video) {
-        this.video = video;
-    }
 
     public String getPhone() {
         return phone;
@@ -96,11 +86,51 @@ public class CreateUnderInfoPo {
         this.email = email;
     }
 
-    public File getFile() {
+    public String getPicFile() {
+        return picFile;
+    }
+
+    public void setPicFile(String picFile) {
+        this.picFile = picFile;
+    }
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
+
+    public String getFile() {
         return file;
     }
 
-    public void setFile(File file) {
+    public void setFile(String file) {
         this.file = file;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public int getUcid() {
+        return ucid;
+    }
+
+    public void setUcid(int ucid) {
+        this.ucid = ucid;
+    }
+
+    public String getVideoOgg() {
+        return videoOgg;
+    }
+
+    public void setVideoOgg(String videoOgg) {
+        this.videoOgg = videoOgg;
     }
 }

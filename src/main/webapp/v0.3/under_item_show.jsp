@@ -1,5 +1,6 @@
 <!doctype html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <%@ include file="Resource.jsp" %>
@@ -41,37 +42,37 @@
                                         <thead>
                                         <tr>
                                             <th>标题：</th>
-                                            <th>迷宫小车</th>
+                                            <th>${createUnderInfoPo.title}</th>
                                         </tr>
                                         </thead>
                                         <tbody id="tbody">
                                         <tr>
                                             <td>小组名称：</td>
-                                            <td>第一组</td>
+                                            <td>${createUnderInfoPo.teamName}</td>
                                         </tr>
                                         <tr>
                                             <td>学校：</td>
-                                            <td>哈尔滨理工大学</td>
+                                            <td>${createUnderInfoPo.school}</td>
                                         </tr>
                                         <tr>
                                             <td>电话：</td>
-                                            <td>18845042554</td>
+                                            <td>${createUnderInfoPo.phone}</td>
                                         </tr>
                                         <tr>
                                             <td>邮箱：</td>
-                                            <td>996015133@qq.com</td>
+                                            <td>${createUnderInfoPo.email}</td>
                                         </tr>
                                         <tr>
                                             <td>学生姓名：</td>
-                                            <td>杨丰瑞，杨丰瑞，杨丰瑞</td>
+                                            <td>${createUnderInfoPo.student}</td>
                                         </tr>
                                         <tr>
                                             <td>指导教师：</td>
-                                            <td>李成严</td>
+                                            <td>${createUnderInfoPo.teacher}</td>
                                         </tr>
                                         <tr>
                                             <td>所需金钱：</td>
-                                            <td>5500</td>
+                                            <td>${createUnderInfoPo.money}</td>
                                         </tr>
 
                                         <tr>
@@ -79,7 +80,7 @@
                                             <td>
                                                 <div id="lunbo" class="lunbo">
                                                     <ul id="shidian_img">
-                                                        <li><img src="/pic/first.png"/></li>
+                                                        <li><img src="${pic}"/></li>
                                                     </ul>
                                                 </div>
                                             </td>
@@ -90,17 +91,22 @@
                                             <td>
                                                 <video width="602px" height="345px" controls="controls">
 
-                                                    <source src="/video/第一组视频.mp4" type="video/mp4"></source>
+                                                    <%--<source src="/pro/getfile?ucid=${createUnderInfoPo.ucid}&type=1" type="video/mp4"></source>--%>
 
-                                                    <source src="/video/第一组视频.ogg" type="video/ogg"></source>
+                                                    <%--<source src="${ogg}" type="video/ogg"></source>--%>
+                                                    <source src="${video}" type="video/mp4"></source>
+                                                    <source src="${ogg}" type="video/ogg"></source>
+
 
                                                 </video>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>附件：第一组迷宫小车.txt</td>
+                                            <td>${createUnderInfoPo.fileName}</td>
                                             <td>
-                                            <a href="/file/第一组-迷宫小车.doc"
+                                            <%--<a href="/pro/getpic?ucid=${createUnderInfoPo.ucid}&type=2"--%>
+                                               <%--download="">点击下载</a>--%>
+                                                <a href="${file}"
                                                download="">点击下载</a>
                                             </td>
 

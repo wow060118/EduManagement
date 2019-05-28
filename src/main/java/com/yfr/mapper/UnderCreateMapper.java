@@ -10,5 +10,9 @@ public interface UnderCreateMapper {
 
     int insert(UnderCreateInfo underCreateInfo);
 
-    List<UnderCreateInfo> queryUnder();
+    List<UnderCreateInfo> queryList();
+
+    UnderCreateInfo queryInfo(int ucid);
+
+    int delUnderInfo (int ucid);
 }

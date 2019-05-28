@@ -25,7 +25,7 @@
 
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a href="/v0.3/under_create_pro.jsp" class="nav-link">
+                        <a href="/pro/query/underlist" class="nav-link">
                             <i class="icon icon-target"></i> 本科生创新成果展示
                         </a>
                     </li>

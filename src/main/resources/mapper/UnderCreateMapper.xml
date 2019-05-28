@@ -22,6 +22,15 @@
         file_name as fileName
     </sql>
 
+    <sql id="select_list">
+        u_cid as ucid,
+        title,
+        team_name as teamName,
+        create_time as createTime,
+        status,
+        uid
+    </sql>
+
     <insert id="insert" parameterType="com.yfr.pojo.UnderCreateInfo">
         insert into undercreate(u_cid,title,team_name,school,phone,email,student,teacher,money, pic,video,
         file_path,uid,create_time,type,status,file_name) values (#{ucid},#{title},#{teamName},
@@ -30,4 +39,19 @@
         )
     </insert>
 
+    <select id="queryList" resultType="com.yfr.pojo.UnderCreateInfo">
+        select
+        <include refid="select_list"/>
+        from undercreate order by create_time desc limit 0 ,9
+    </select>
+
+    <select id="queryInfo" parameterType="java.lang.Integer" resultType="com.yfr.pojo.UnderCreateInfo">
+        select
+        <include refid="select_sql"/>
+        from undercreate where u_cid = #{ucid}
+    </select>
+
+    <delete id="delUnderInfo" parameterType="java.lang.Integer">
+        delete from  undercreate where u_cid =#{ucid}
+    </delete>
 </mapper>

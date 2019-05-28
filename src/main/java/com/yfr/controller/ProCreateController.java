@@ -1,8 +1,11 @@
 package com.yfr.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.sun.deploy.net.HttpRequest;
+import com.sun.deploy.net.HttpResponse;
 import com.yfr.ResponsResult;
 import com.yfr.po.CreateUnderInfoPo;
+import com.yfr.po.ShowListPo;
 import com.yfr.pojo.UnderCreateInfo;
 import com.yfr.service.impl.UnderCreateServiceImpl;
 import com.yfr.util.FileUtil;
@@ -10,28 +13,31 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/procreate")
 public class ProCreateController extends BaseController {
 
     Logger logger = LoggerFactory.getLogger(ProCreateController.class);
-    String path = "E:\\saveFile\\";
+    String path = "F:\\apache-tomcat-9.0.0.M22-windows-x64\\apache-tomcat-9.0.0.M22\\webapps\\ROOT\\savefile\\";
 
     @Autowired
     private UnderCreateServiceImpl underCreateService;
 
     @RequestMapping("/create/under")
-    @ResponseBody
-    public ResponsResult underCreatePro(@RequestParam("uid") int uid,
+    public String underCreatePro(
+                                        @RequestParam("uid") int uid,
                                         @RequestParam("title") String title,
                                         @RequestParam("teamName") String teamName,
                                         @RequestParam("school") String school,
@@ -43,6 +49,7 @@ public class ProCreateController extends BaseController {
                                         @RequestParam("picFile") MultipartFile picFile,
                                         @RequestParam("file") MultipartFile file,
                                         @RequestParam("video") MultipartFile video) {
+
         UnderCreateInfo underCreateInfo = new UnderCreateInfo();
         underCreateInfo.setCreateTime(new Date());
         underCreateInfo.setTitle(title);
@@ -75,19 +82,10 @@ public class ProCreateController extends BaseController {
         underCreateInfo.setUid(uid);
         System.out.println(JSON.toJSONString(underCreateInfo));
         int num = underCreateService.insert(underCreateInfo);
-        if(num>0) {
-            return inbound(null, "success");
-        }else {
-            return failHandler("error");
+        if (num > 0) {
+            return "/v0.3/under_create_pro";
+        } else {
+            return "";
         }
-    }
-
-    @RequestMapping("/query/under")
-    @ResponseBody
-    public ResponsResult queryUnder(){
-
-
-
-        return inbound(null,"success");
     }
 }

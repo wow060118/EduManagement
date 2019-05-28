@@ -1,5 +1,6 @@
 <!doctype html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <%@ include file="Resource.jsp" %>
@@ -59,18 +60,22 @@
                                         </tr>
                                         </thead>
                                         <tbody id="tbody">
+                                        <c:forEach items="${underList}" var="list">
                                         <tr>
-                                            <td>第一组</td>
-                                            <td>迷宫小车</td>
-                                            <td>2019.3.23</td>
-                                            <%--到时候添加方法--%>
-                                            <td>
-                                                <a onclick="do_support()"><i class="icon-docs"></i></a>
-                                                <a onclick="do_support()"><i class="icon-trash"></i></a>
-                                                <a onclick="do_support()"><i class="icon-pencil"></i></a>
-                                            </td>
-                                        </tr>
 
+                                                <td>${list.teamName}</td>
+                                                <td>${list.title}</td>
+                                                <td>${list.createTime}</td>
+                                                <%--到时候添加方法--%>
+                                                <td>
+                                                    <a href="/pro/query/underInfo?ucid=${list.ucid}"><i class="icon-docs"></i></a>
+
+                                                    <a href="/pro/del/under?ucid=${list.ucid}"><i class="icon-trash"></i></a>
+                                                    <a onclick="do_support()"><i class="icon-pencil"></i></a>
+                                                </td>
+
+                                        </tr>
+                                        </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
