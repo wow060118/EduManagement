@@ -162,7 +162,7 @@
         var underProId=0;
         // ajax处理接收课程表
         $.ajax({
-                url: "${pageContext.request.contextPath}/apply/create?userId="+userId+"&underProId="+underProId,
+                url: "${pageContext.request.contextPath}/apply/applypro?uid="+userId+"&cid="+underProId+"&type="+1,
                 dataType:"json",
                 type: "post",
                 contentType: "application/json;charset=utf-8",
