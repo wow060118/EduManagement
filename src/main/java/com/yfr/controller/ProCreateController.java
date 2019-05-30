@@ -80,10 +80,11 @@ public class ProCreateController extends BaseController {
         underCreateInfo.setFileName(file.getOriginalFilename());
         underCreateInfo.setStatus(0);
         underCreateInfo.setUid(uid);
+        underCreateInfo.setType(0);
         System.out.println(JSON.toJSONString(underCreateInfo));
         int num = underCreateService.insert(underCreateInfo);
         if (num > 0) {
-            return "/v0.3/under_create_pro";
+            return "redirect:/v0.3/under_create_pro.jsp";
         } else {
             return "";
         }

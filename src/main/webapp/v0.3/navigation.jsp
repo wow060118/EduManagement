@@ -62,7 +62,7 @@
                 </a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a href="/v0.3/my_pro.jsp" class="nav-link">
+                        <a href="/my/mylist?uid=${userInfo.uid}" class="nav-link">
                             <i class="icon icon-energy"></i> 我的项目
                         </a>
                     </li>

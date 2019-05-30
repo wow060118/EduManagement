@@ -1,5 +1,6 @@
 package com.yfr.mapper;
 
+import com.yfr.pojo.RequireCreateInfo;
 import com.yfr.pojo.UnderCreateInfo;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +14,8 @@ public interface UnderCreateMapper {
     List<UnderCreateInfo> queryList();
 
     UnderCreateInfo queryInfo(int ucid);
+
+    List<UnderCreateInfo> queryMyList(int uid);
 
     int delUnderInfo (int ucid);
 }

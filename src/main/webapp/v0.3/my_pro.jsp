@@ -1,5 +1,7 @@
 <!doctype html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
     <%@ include file ="Resource.jsp"%>
@@ -10,93 +12,10 @@
     <%@include file="Head.jsp"%>
 
     <div class="main-container">
-        <%--
-  Created by IntelliJ IDEA.
-  User: Koreyoshi
-  Date: 2019/5/21
-  Time: 14:01
-  To change this template use File | Settings | File Templates.
---%>
+
         <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-        <div class="sidebar">
-            <nav class="sidebar-nav">
-                <ul class="nav">
-                    <li class="nav-title">导航</li>
-
-                    <li class="nav-item">
-                        <a href="/v0.3/main_page.jsp" class="nav-link active">
-                            <i class="icon icon-speedometer"></i> 主页
-                        </a>
-                    </li>
-
-                    <li class="nav-item nav-dropdown">
-                        <a href="#" class="nav-link nav-dropdown-toggle">
-                            <i class="icon icon-target"></i> 创新成果展示 <i class="fa fa-caret-left"></i>
-                        </a>
-
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a href="/v0.3/under_create_pro.jsp" class="nav-link">
-                                    <i class="icon icon-target"></i> 本科生创新成果展示
-                                </a>
-                            </li>
-                        </ul>
-
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a href="/v0.3/post_create_pro.jsp" class="nav-link">
-                                    <i class="icon icon-target"></i> 研究生创新成果展示
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item nav-dropdown">
-                        <a href="#" class="nav-link nav-dropdown-toggle">
-                            <i class="icon icon-energy"></i> 需求对接 <i class="fa fa-caret-left"></i>
-                        </a>
-
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a href="/v0.3/requier_pro.jsp" class="nav-link">
-                                    <i class="icon icon-energy"></i> 需求对接
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-title">更多</li>
-
-                    <li class="nav-item nav-dropdown">
-                        <a href="#" class="nav-link nav-dropdown-toggle">
-                            <i class="icon icon-umbrella"></i> 其他 <i class="fa fa-caret-left"></i>
-                        </a>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a href="/v0.3/my_pro.jsp" class="nav-link">
-                                    <i class="icon icon-energy"></i> 我的项目
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a href="/v0.3/my_apply.jsp" class="nav-link">
-                                    <i class="icon icon-target"></i> 我申请的项目
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="icon icon-target"></i> 交流
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+            <%@include file="navigation.jsp" %>
 
 
         <div class="content">
@@ -117,18 +36,45 @@
                                             <th>小组名称</th>
                                             <th>标题</th>
                                             <th>创建时间</th>
-                                            <th>操作</th>
+                                            <th colspan=>操作</th>
                                         </tr>
                                         </thead>
                                         <tbody id="tbody">
-                                        <tr>
-                                            <td>第一组</td>
-                                            <td>迷宫小车</td>
-                                            <td>2019.3.23</td>
-                                            <%--到时候添加方法--%>
-                                            <td onclick="do_support()">详情</td>
-                                        </tr>
+                                        <c:forEach items="${myList}" var="list">
+                                            <tr>
 
+                                                <td>${list.teamName}</td>
+                                                <td>${list.title}</td>
+                                                <td>${list.createTime}</td>
+                                                    <%--到时候添加方法--%>
+                                                <c:if test="${list.type==0}">
+                                                    <td>
+                                                        <a href="/pro/query/underInfo?ucid=${list.cid}"><i class="icon-docs"></i></a>
+
+                                                        <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
+                                                        <a onclick="do_support()"><i class="icon-pencil"></i></a>
+                                                    </td>
+                                                </c:if>
+                                                <c:if test="${list.type==1}">
+                                                    <td>
+                                                        <a href="/pro/query/underInfo?ucid=${list.cid}"><i class="icon-docs"></i></a>
+
+                                                        <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
+                                                        <a onclick="do_support()"><i class="icon-pencil"></i></a>
+                                                    </td>
+                                                </c:if>
+                                                <c:if test="${list.type==2}">
+                                                    <td>
+                                                        <a href="/pro/query/underInfo?ucid=${list.cid}"><i class="icon-docs"></i></a>
+
+                                                        <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
+                                                        <a onclick="do_support()"><i class="icon-pencil"></i></a>
+                                                    </td>
+                                                </c:if>
+
+
+                                            </tr>
+                                        </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>

@@ -68,9 +68,9 @@
                                                 <td>${list.createTime}</td>
                                                 <%--到时候添加方法--%>
                                                 <td>
-                                                    <a href="/pro/query/underInfo?ucid=${list.ucid}"><i class="icon-docs"></i></a>
+                                                    <a href="/pro/query/underInfo?ucid=${list.cid}"><i class="icon-docs"></i></a>
 
-                                                    <a href="/pro/del/under?ucid=${list.ucid}"><i class="icon-trash"></i></a>
+                                                    <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
                                                     <a onclick="do_support()"><i class="icon-pencil"></i></a>
                                                 </td>
 
@@ -82,7 +82,6 @@
                             </div>
                         </div>
                     </div>
-                    <%@include file="page.jsp" %>
                 </div>
 
             </div>

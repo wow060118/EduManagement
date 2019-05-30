@@ -2,5 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yfr.mapper.PostCreateMapper">
 
+    <sql id="select_list">
+        p_cid as pcid,
+        title,
+        team_name as teamName,
+        create_time as createTime,
+        status,
+        uid,
+        type
+    </sql>
 
+    <select id="queryMyList" parameterType="java.lang.Integer" resultType="com.yfr.pojo.PostCreateInfo">
+        select
+        <include refid="select_list"/>
+        from postcreate
+        where uid=#{uid}
+        order by create_time desc
+    </select>
 </mapper>

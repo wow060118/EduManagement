@@ -1,14 +1,17 @@
 package com.yfr.po;
 
-public class ShowListPo {
+import java.util.Date;
+
+public class ShowListPo  implements Comparable<ShowListPo>{
     private String title;
     private String teamName;
     private String companyName;
     private String completion;
     private String createTime;
-    private int ucid;
+    private int cid;
     private int uid;
-
+    private Date sortDate;
+    private int type;
     public String getTitle() {
         return title;
     }
@@ -33,12 +36,20 @@ public class ShowListPo {
         this.createTime = createTime;
     }
 
-    public int getUcid() {
-        return ucid;
+    public int getCid() {
+        return cid;
     }
 
-    public void setUcid(int ucid) {
-        this.ucid = ucid;
+    public void setCid(int cid) {
+        this.cid = cid;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public int getUid() {
@@ -63,5 +74,18 @@ public class ShowListPo {
 
     public void setCompletion(String completion) {
         this.completion = completion;
+    }
+
+    public Date getSortDate() {
+        return sortDate;
+    }
+
+    public void setSortDate(Date sortDate) {
+        this.sortDate = sortDate;
+    }
+
+    @Override
+    public int compareTo(ShowListPo o) {
+        return (int)(this.sortDate.getTime()-o.sortDate.getTime())/1000;
     }
 }

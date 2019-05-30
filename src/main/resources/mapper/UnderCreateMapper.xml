@@ -28,7 +28,8 @@
         team_name as teamName,
         create_time as createTime,
         status,
-        uid
+        uid,
+        type
     </sql>
 
     <insert id="insert" parameterType="com.yfr.pojo.UnderCreateInfo">
@@ -43,6 +44,14 @@
         select
         <include refid="select_list"/>
         from undercreate order by create_time desc limit 0 ,9
+    </select>
+
+    <select id="queryMyList" resultType="com.yfr.pojo.UnderCreateInfo">
+        select
+        <include refid="select_list"/>
+        from undercreate
+        where uid=#{uid}
+        order by create_time desc
     </select>
 
     <select id="queryInfo" parameterType="java.lang.Integer" resultType="com.yfr.pojo.UnderCreateInfo">

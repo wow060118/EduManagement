@@ -55,7 +55,7 @@ public class UnderCreateServiceImpl implements UnderCreateService {
         showListPo.setCreateTime(DateUtil.gainDate(underCreateInfo.getCreateTime()));
         showListPo.setTeamName(underCreateInfo.getTeamName());
         showListPo.setTitle(underCreateInfo.getTitle());
-        showListPo.setUcid(underCreateInfo.getUcid());
+        showListPo.setCid(underCreateInfo.getUcid());
         showListPo.setUid(underCreateInfo.getUid());
         return showListPo;
     }
