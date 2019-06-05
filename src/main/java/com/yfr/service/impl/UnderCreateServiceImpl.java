@@ -71,7 +71,7 @@ public class UnderCreateServiceImpl implements UnderCreateService {
         createUnderInfoPo.setMoney(underCreateInfo.getMoney());
         createUnderInfoPo.setStudent(underCreateInfo.getStudent());
         createUnderInfoPo.setTeacher(underCreateInfo.getTeacher());
-
+        createUnderInfoPo.setUid(underCreateInfo.getUid());
 
         createUnderInfoPo.setPicFile(underCreateInfo.getPic());
         createUnderInfoPo.setVideo(underCreateInfo.getVideo());

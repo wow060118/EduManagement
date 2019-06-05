@@ -8,12 +8,15 @@ import com.yfr.pojo.User;
 import com.yfr.service.AnnouncementService;
 import com.yfr.service.UserService;
 import com.alibaba.fastjson.JSON;
+import com.yfr.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @Controller
@@ -38,6 +41,15 @@ public class UserController extends BaseController{
     public String login(User user, Model model, HttpSession session){
         if(user.getAccount() == null || user.getPassword() == null)
             return "redirect:/index.jsp";
+        try {
+            String pwd= MD5Util.EncoderByMd5(user.getPassword());
+            user.setPassword(pwd);
+            System.out.println(pwd);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         List<User> userList = userService.quireByAccountPassWord(user);
         //账号密码正确且只有一个用户
         if(userList.size() == 1){
@@ -95,6 +107,14 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/reg",method = RequestMethod.POST)
     public String register(User user){
         System.out.println(JSON.toJSONString(user));
+        try {
+            String pwd = MD5Util.EncoderByMd5(user.getPassword());
+            user.setPassword(pwd);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         int num = userService.insert(user);
         if(num>0){
             return "redirect:/index.jsp";

@@ -271,7 +271,7 @@
                                                         <li>
                                                             <div class="a_friend">
                                                                 <div class="friend" onclick="change()">
-                                                                    <div class="name" >杨丰瑞</div>
+                                                                    <div class="name" >songshuang</div>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -338,7 +338,7 @@
             } else {
                 chat_ul.innerHTML += '<li><img src="../pic/3.jpg"><span>' + send_txt.value + '</span>';
                 now++;
-                if (num==0) {
+                if (num==1) {
                     chat_span[now].className = 'spanright';
                     chat_img[now].className = 'imgright';
                 }

@@ -17,6 +17,7 @@ public class CreateUnderInfoPo {
     private String email;
     private String file;
     private String fileName;
+    private int uid;
 
 
     public String getTitle() {
@@ -132,5 +133,13 @@ public class CreateUnderInfoPo {
 
     public void setVideoOgg(String videoOgg) {
         this.videoOgg = videoOgg;
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 }

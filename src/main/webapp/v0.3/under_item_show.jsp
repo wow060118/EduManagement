@@ -17,7 +17,7 @@
 
     <title>创新展示平台</title>
     <link rel="stylesheet" href="/Static/jquery/1.11.3/jquery.min.js">
-
+    <link rel="stylesheet" href="/src/auth.css">
 </head>
 <body class="sidebar-fixed header-fixed">
 <div class="page-wrapper">
@@ -42,37 +42,53 @@
                                         <thead>
                                         <tr>
                                             <th>标题：</th>
-                                            <th>${createUnderInfoPo.title}</th>
+                                            <th id="title_td">${createUnderInfoPo.title}</th>
+                                            <th><input type="text" id="title_in" class="lowin-input"
+                                                       style="visibility: hidden" value="${createUnderInfoPo.title}"></th>
                                         </tr>
                                         </thead>
                                         <tbody id="tbody">
                                         <tr>
                                             <td>小组名称：</td>
-                                            <td>${createUnderInfoPo.teamName}</td>
+                                            <td id="teamName_td">${createUnderInfoPo.teamName}</td>
+                                            <td><input type="text" id="teamName_in" class="lowin-input"
+                                                       style="visibility: hidden" value="${createUnderInfoPo.teamName}"></td>
                                         </tr>
                                         <tr>
                                             <td>学校：</td>
-                                            <td>${createUnderInfoPo.school}</td>
+                                            <td id="school_td">${createUnderInfoPo.school}</td>
+                                            <td><input type="text" id="school_in" class="lowin-input"
+                                                       style="visibility: hidden" value="${createUnderInfoPo.school}"></td>
                                         </tr>
                                         <tr>
                                             <td>电话：</td>
-                                            <td>${createUnderInfoPo.phone}</td>
+                                            <td id="phone_td">${createUnderInfoPo.phone}</td>
+                                            <td><input type="text" id="phone_in" class="lowin-input"
+                                                       style="visibility: hidden" value="${createUnderInfoPo.phone}"></td>
                                         </tr>
                                         <tr>
                                             <td>邮箱：</td>
-                                            <td>${createUnderInfoPo.email}</td>
+                                            <td id="email_td">${createUnderInfoPo.email}</td>
+                                            <td><input type="text" id="email_in" class="lowin-input"
+                                                       style="visibility: hidden" value="${createUnderInfoPo.email}"></td>
                                         </tr>
                                         <tr>
                                             <td>学生姓名：</td>
-                                            <td>${createUnderInfoPo.student}</td>
+                                            <td id="student_td">${createUnderInfoPo.student}</td>
+                                            <td><input type="text" id="student_in" class="lowin-input"
+                                                       style="visibility: hidden" value="${createUnderInfoPo.student}"></td>
                                         </tr>
                                         <tr>
                                             <td>指导教师：</td>
-                                            <td>${createUnderInfoPo.teacher}</td>
+                                            <td id="teacher_td">${createUnderInfoPo.teacher}</td>
+                                            <td><input type="text" id="teacher_in" class="lowin-input"
+                                                       style="visibility: hidden" value="${createUnderInfoPo.teacher}"></td>
                                         </tr>
                                         <tr>
                                             <td>所需金钱：</td>
-                                            <td>${createUnderInfoPo.money}</td>
+                                            <td id="money_td">${createUnderInfoPo.money}</td>
+                                            <td><input type="text" id="money_in" class="lowin-input"
+                                                       style="visibility: hidden" value="${createUnderInfoPo.money}"></td>
                                         </tr>
 
                                         <tr>
@@ -104,21 +120,28 @@
                                         <tr>
                                             <td>${createUnderInfoPo.fileName}</td>
                                             <td>
-                                            <%--<a href="/pro/getpic?ucid=${createUnderInfoPo.ucid}&type=2"--%>
-                                               <%--download="">点击下载</a>--%>
+                                                <%--<a href="/pro/getpic?ucid=${createUnderInfoPo.ucid}&type=2"--%>
+                                                <%--download="">点击下载</a>--%>
                                                 <a href="${file}"
-                                               download="">点击下载</a>
+                                                   download="">点击下载</a>
                                             </td>
 
                                         </tr>
                                         </tbody>
 
                                         <tfoot>
-                                            <tr>
+                                        <tr>
+                                            <c:if test="${createUnderInfoPo.uid!=userInfo.uid}">
                                                 <button id="apply" class="btn btn-primary" onclick="apply()">
                                                     申 请 项 目
                                                 </button>
-                                            </tr>
+                                            </c:if>
+                                            <c:if test="${createUnderInfoPo.uid==userInfo.uid}">
+                                                <button id="update" class="btn btn-primary" onclick="update()">
+                                                    修 改 项 目
+                                                </button>
+                                            </c:if>
+                                        </tr>
                                         </tfoot>
                                     </table>
                                 </div>
@@ -158,24 +181,44 @@
 
     function apply() {
         //包装成JSON
-        var userId=1;
-        var underProId=0;
+        var userId = 1;
+        var underProId = 0;
         // ajax处理接收课程表
         $.ajax({
-                url: "${pageContext.request.contextPath}/apply/applypro?uid="+userId+"&cid="+underProId+"&type="+1,
-                dataType:"json",
+                url: "${pageContext.request.contextPath}/apply/applypro",
+                dataType: "json",
                 type: "post",
                 contentType: "application/json;charset=utf-8",
                 success: function (result) {
                     console.log(result)
-                    code= result.code;
-                    if(code == 200){
+                    code = result.code;
+                    if (code == 200) {
                         alert(result.msg)
-                        document.getElementById("apply").style.display='none';
+                        document.getElementById("apply").style.display = 'none';
                     }
                 }
             }
         )
+    }
+
+    function update() {
+        document.getElementById("title_in").style.visibility="visible";
+        document.getElementById("teamName_in").style.visibility="visible";
+        document.getElementById("school_in").style.visibility="visible";
+        document.getElementById("phone_in").style.visibility="visible";
+        document.getElementById("email_in").style.visibility="visible";
+        document.getElementById("student_in").style.visibility="visible";
+        document.getElementById("teacher_in").style.visibility="visible";
+        document.getElementById("money_in").style.visibility="visible";
+
+        document.getElementById("title_td").style.display="none";
+        document.getElementById("teamName_td").style.display="none";
+        document.getElementById("school_td").style.display="none";
+        document.getElementById("phone_td").style.display="none";
+        document.getElementById("email_td").style.display="none";
+        document.getElementById("student_td").style.display="none";
+        document.getElementById("teacher_td").style.display="none";
+        document.getElementById("money_td").style.display="none";
     }
 </script>
 
