@@ -26,4 +26,8 @@
         from postcreate
         order by create_time desc
     </select>
+
+    <update id="updateStatus" parameterType="java.lang.Integer">
+        update postcreate set status=#{status} where u_cid=#{ucid}
+    </update>
 </mapper>

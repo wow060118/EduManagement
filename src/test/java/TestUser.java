@@ -1,3 +1,4 @@
+import com.yfr.mapper.UnderCreateMapper;
 import com.yfr.mapper.UserMapper;
 import com.yfr.pojo.User;
 import com.yfr.service.UserService;
@@ -17,6 +18,9 @@ import java.util.List;
 public class TestUser {
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private UnderCreateMapper underCreateMapper;
 
     @Autowired
     private UserService userService;
@@ -42,5 +46,10 @@ public class TestUser {
 
         List<User> list = userService.quireByAccountPassWord(user);
         System.out.println("userService:"+list.get(0).getAccount()+" "+list.get(0).getPassword());
+    }
+
+    @Test
+    public void testUpdate(){
+        underCreateMapper.updateStatus(1,17);
     }
 }

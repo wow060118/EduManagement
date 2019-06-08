@@ -70,4 +70,8 @@
     <delete id="delUnderInfo" parameterType="java.lang.Integer">
         delete from  undercreate where u_cid =#{ucid}
     </delete>
+
+    <update id="updateStatus" parameterType="java.lang.Integer">
+        update undercreate set status=#{status} where u_cid=#{ucid}
+    </update>
 </mapper>

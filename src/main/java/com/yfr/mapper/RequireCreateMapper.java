@@ -11,4 +11,6 @@ public interface RequireCreateMapper {
     List<RequireCreateInfo> queryMyList(int uid);
 
     List<RequireCreateInfo> queryProList();
+
+    int updateStatus(int status,int rcid);
 }

@@ -2,6 +2,7 @@ package com.yfr.mapper;
 
 import com.yfr.pojo.RequireCreateInfo;
 import com.yfr.pojo.UnderCreateInfo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface UnderCreateMapper {
     int delUnderInfo (int ucid);
 
     List<UnderCreateInfo> queryProList();
+
+    int updateStatus(@Param("status") int status,@Param("ucid") int ucid);
 }

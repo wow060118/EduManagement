@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yfr.mapper.ApplyMapper">
+    <insert id="insert" parameterType="com.yfr.pojo.ApplyInfo">
+        INSERT INTO `apply`(
+      uid,
+      pid,
+      protype,
+      cuid
+    )VALUE(
+      #{uid},
+      #{pid},
+      #{protype},
+      #{cuid}
+    )
+    </insert>
 
+    <select id="queryInfoByPid" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select uid from apply where pid =#{pid} and protype=#{protype}
+    </select>
 
 </mapper>

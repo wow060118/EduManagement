@@ -10,4 +10,6 @@ public interface PostCreateMapper {
     List<PostCreateInfo> queryMyList(int uid);
 
     List<PostCreateInfo> queryProList();
+
+    int updateStatus(int status,int pcid);
 }

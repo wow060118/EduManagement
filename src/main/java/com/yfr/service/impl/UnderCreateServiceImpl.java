@@ -2,6 +2,7 @@ package com.yfr.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
+import com.yfr.mapper.ApplyMapper;
 import com.yfr.mapper.UnderCreateMapper;
 import com.yfr.po.CreateUnderInfoPo;
 import com.yfr.po.ShowListPo;
@@ -19,6 +20,8 @@ public class UnderCreateServiceImpl implements UnderCreateService {
     @Autowired
     private UnderCreateMapper underCreateMapper;
 
+    @Autowired
+    private ApplyMapper applyMapper;
     public int insert(UnderCreateInfo underCreateInfo) {
         int insert = underCreateMapper.insert(underCreateInfo);
         return insert;
@@ -38,7 +41,8 @@ public class UnderCreateServiceImpl implements UnderCreateService {
 
     public CreateUnderInfoPo queryUnderInfo(int ucid){
         UnderCreateInfo underCreateInfo = underCreateMapper.queryInfo(ucid);
-        CreateUnderInfoPo createUnderInfoPo = buildCreateUnderInfoPo(underCreateInfo);
+        int applyUid = applyMapper.queryInfoByPid(underCreateInfo.getUcid(), 0);
+        CreateUnderInfoPo createUnderInfoPo = buildCreateUnderInfoPo(underCreateInfo, applyUid);
         System.out.println("createUnderInfoPo:   "+ JSON.toJSONString(createUnderInfoPo));
         return createUnderInfoPo;
     }
@@ -60,7 +64,7 @@ public class UnderCreateServiceImpl implements UnderCreateService {
         return showListPo;
     }
 
-    private CreateUnderInfoPo buildCreateUnderInfoPo(UnderCreateInfo underCreateInfo){
+    private CreateUnderInfoPo buildCreateUnderInfoPo(UnderCreateInfo underCreateInfo,int applyUid){
         CreateUnderInfoPo createUnderInfoPo=new CreateUnderInfoPo();
         createUnderInfoPo.setUcid(underCreateInfo.getUcid());
         createUnderInfoPo.setTeamName(underCreateInfo.getTeamName());
@@ -77,6 +81,8 @@ public class UnderCreateServiceImpl implements UnderCreateService {
         createUnderInfoPo.setVideo(underCreateInfo.getVideo());
         createUnderInfoPo.setFile(underCreateInfo.getFilePath());
         createUnderInfoPo.setFileName(underCreateInfo.getFileName());
+        createUnderInfoPo.setStatus(underCreateInfo.getStatus());
+        createUnderInfoPo.setApplyUid(applyUid);
         String ogg= underCreateInfo.getVideo();
         ogg=ogg.replace("mp4","ogg");
         createUnderInfoPo.setVideoOgg(ogg);

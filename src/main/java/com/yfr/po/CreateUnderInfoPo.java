@@ -18,6 +18,8 @@ public class CreateUnderInfoPo {
     private String file;
     private String fileName;
     private int uid;
+    private int status;
+    private int applyUid;
 
 
     public String getTitle() {
@@ -141,5 +143,21 @@ public class CreateUnderInfoPo {
 
     public void setUid(int uid) {
         this.uid = uid;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getApplyUid() {
+        return applyUid;
+    }
+
+    public void setApplyUid(int applyUid) {
+        this.applyUid = applyUid;
     }
 }
