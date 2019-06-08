@@ -34,6 +34,7 @@ public class ApplyServiceImpl implements ApplyService {
         applyInfo.setCuid(Integer.parseInt(applyInfoPo.getCuid()));
         applyInfo.setPid(Integer.parseInt(applyInfoPo.getPid()));
         applyInfo.setProtype(applyInfoPo.getProtype());
+        applyInfo.setTitle(applyInfoPo.getTitle());
         return applyInfo;
     }
 }

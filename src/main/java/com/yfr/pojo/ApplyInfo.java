@@ -8,6 +8,7 @@ public class ApplyInfo implements Serializable {
     private int pid;
     private int protype;
     private int cuid;
+    private String title;
 
     public int getId() {
         return id;
@@ -47,5 +48,13 @@ public class ApplyInfo implements Serializable {
 
     public void setCuid(int cuid) {
         this.cuid = cuid;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

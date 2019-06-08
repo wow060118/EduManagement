@@ -6,12 +6,14 @@
       uid,
       pid,
       protype,
-      cuid
+      cuid,
+      title
     )VALUE(
       #{uid},
       #{pid},
       #{protype},
-      #{cuid}
+      #{cuid},
+      #{title}
     )
     </insert>
 

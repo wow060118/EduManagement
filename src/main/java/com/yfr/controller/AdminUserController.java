@@ -47,6 +47,13 @@ public class AdminUserController {
         return "/v0.3/admin_pro";
     }
 
+
+    @RequestMapping("/applyList")
+    public String applyList() {
+
+        return "";
+    }
+
     private UserInfo buildUserInfo(User user){
         UserInfo userInfo=new UserInfo();
         userInfo.setAccount(user.getAccount());

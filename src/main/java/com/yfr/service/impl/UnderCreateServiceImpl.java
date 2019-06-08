@@ -22,28 +22,32 @@ public class UnderCreateServiceImpl implements UnderCreateService {
 
     @Autowired
     private ApplyMapper applyMapper;
+
     public int insert(UnderCreateInfo underCreateInfo) {
         int insert = underCreateMapper.insert(underCreateInfo);
         return insert;
     }
 
-    public List<ShowListPo> queryUnderList(){
+    public List<ShowListPo> queryUnderList() {
         List<UnderCreateInfo> underCreateInfos = underCreateMapper.queryList();
-        List<ShowListPo> lists= Lists.newArrayList();
-        underCreateInfos.forEach(v->{
+        List<ShowListPo> lists = Lists.newArrayList();
+        underCreateInfos.forEach(v -> {
             ShowListPo showListPo = buildShowListPo(v);
             lists.add(showListPo);
         });
-        System.out.println("quneryUnderList:   "+ JSON.toJSONString(lists));
+        System.out.println("quneryUnderList:   " + JSON.toJSONString(lists));
         return lists;
     }
 
 
-    public CreateUnderInfoPo queryUnderInfo(int ucid){
+    public CreateUnderInfoPo queryUnderInfo(int ucid) {
         UnderCreateInfo underCreateInfo = underCreateMapper.queryInfo(ucid);
-        int applyUid = applyMapper.queryInfoByPid(underCreateInfo.getUcid(), 0);
+        int applyUid = -1;
+        if (underCreateInfo.getStatus() != 0) {
+            applyUid = applyMapper.queryInfoByPid(underCreateInfo.getUcid(), 0);
+        }
         CreateUnderInfoPo createUnderInfoPo = buildCreateUnderInfoPo(underCreateInfo, applyUid);
-        System.out.println("createUnderInfoPo:   "+ JSON.toJSONString(createUnderInfoPo));
+        System.out.println("createUnderInfoPo:   " + JSON.toJSONString(createUnderInfoPo));
         return createUnderInfoPo;
     }
 
@@ -54,8 +58,8 @@ public class UnderCreateServiceImpl implements UnderCreateService {
     }
 
 
-    private ShowListPo buildShowListPo(UnderCreateInfo underCreateInfo){
-        ShowListPo showListPo=new ShowListPo();
+    private ShowListPo buildShowListPo(UnderCreateInfo underCreateInfo) {
+        ShowListPo showListPo = new ShowListPo();
         showListPo.setCreateTime(DateUtil.gainDate(underCreateInfo.getCreateTime()));
         showListPo.setTeamName(underCreateInfo.getTeamName());
         showListPo.setTitle(underCreateInfo.getTitle());
@@ -64,8 +68,8 @@ public class UnderCreateServiceImpl implements UnderCreateService {
         return showListPo;
     }
 
-    private CreateUnderInfoPo buildCreateUnderInfoPo(UnderCreateInfo underCreateInfo,int applyUid){
-        CreateUnderInfoPo createUnderInfoPo=new CreateUnderInfoPo();
+    private CreateUnderInfoPo buildCreateUnderInfoPo(UnderCreateInfo underCreateInfo, int applyUid) {
+        CreateUnderInfoPo createUnderInfoPo = new CreateUnderInfoPo();
         createUnderInfoPo.setUcid(underCreateInfo.getUcid());
         createUnderInfoPo.setTeamName(underCreateInfo.getTeamName());
         createUnderInfoPo.setTitle(underCreateInfo.getTitle());
@@ -83,8 +87,8 @@ public class UnderCreateServiceImpl implements UnderCreateService {
         createUnderInfoPo.setFileName(underCreateInfo.getFileName());
         createUnderInfoPo.setStatus(underCreateInfo.getStatus());
         createUnderInfoPo.setApplyUid(applyUid);
-        String ogg= underCreateInfo.getVideo();
-        ogg=ogg.replace("mp4","ogg");
+        String ogg = underCreateInfo.getVideo();
+        ogg = ogg.replace("mp4", "ogg");
         createUnderInfoPo.setVideoOgg(ogg);
         return createUnderInfoPo;
     }

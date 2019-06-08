@@ -104,6 +104,14 @@
                         </a>
                     </li>
                 </ul>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="/admin/applyList" class="nav-link">
+                            <i class="icon icon-target"></i> 对接管理
+                        </a>
+                    </li>
+                </ul>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a href="/v0.3/my_chat.jsp" class="nav-link">

@@ -26,7 +26,7 @@
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <input type="text" id="className" name="name"
-                                                   class="form-control" placeholder="用户名">
+                                                   class="form-control" placeholder="项目名称">
                                             <span class="input-group-btn">
                                                     <button id="selectCourse" type="button" class="btn btn-primary"><i
                                                             class="fa fa-search"></i>查找</button>
@@ -45,7 +45,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header bg-light">
-                                用户管理
+                                承接管理
                             </div>
 
                             <div class="card-body">

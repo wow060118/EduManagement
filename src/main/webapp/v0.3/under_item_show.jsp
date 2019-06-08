@@ -172,7 +172,7 @@
                                                         </button>
                                                     </td>
                                                 </c:if>
-                                                <c:if test="${createUnderInfoPo.uid==userInfo.uid}">
+                                                <c:if test="${createUnderInfoPo.uid==userInfo.uid||userInfo.admin==1}">
                                                     <td>
                                                         <button id="update" class="btn btn-primary" onclick="update()">
                                                             修 改 项 目
@@ -272,7 +272,9 @@
             "cuid": document.getElementById("cuid").innerText,
             "pid": document.getElementById("ucid").innerText,
             "proType": 0,
+            "title":document.getElementById("title_td").innerText
         };
+        console.log(applyInfo);
         $.ajax({
                 url: "${pageContext.request.contextPath}/apply/applypro",
                 data: JSON.stringify(applyInfo),
@@ -285,6 +287,9 @@
                     if (code == 200) {
                         alert("申请项目成功")
                         document.getElementById("apply").style.display = 'none';
+                        window.location.reload()
+                    }else {
+                        alert("申请项目失败")
                     }
                 }
             }
