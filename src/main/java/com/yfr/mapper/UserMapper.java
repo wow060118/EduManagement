@@ -9,4 +9,5 @@ import java.util.List;
 public interface UserMapper {
     public List<User> quireByAccountPassWord(User user);
     public int insert(User user);
+    public List<User> getUserList();
 }

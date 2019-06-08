@@ -26,7 +26,7 @@
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <input type="text" id="className" name="name"
-                                                   class="form-control" placeholder="项目名称">
+                                                   class="form-control" placeholder="课程名称">
                                             <span class="input-group-btn">
                                                     <button id="selectCourse" type="button" class="btn btn-primary"><i
                                                             class="fa fa-search"></i>查找</button>
@@ -61,21 +61,20 @@
                                         </thead>
                                         <tbody id="tbody">
                                         <c:forEach items="${underList}" var="list">
-                                            <tr>
+                                        <tr>
 
                                                 <td>${list.teamName}</td>
                                                 <td>${list.title}</td>
                                                 <td>${list.createTime}</td>
-                                                    <%--到时候添加方法--%>
+                                                <%--到时候添加方法--%>
                                                 <td>
-                                                    <a href="/pro/query/underInfo?ucid=${list.cid}"><i
-                                                            class="icon-docs"></i></a>
+                                                    <a href="/pro/query/underInfo?ucid=${list.cid}"><i class="icon-docs"></i></a>
 
                                                     <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
                                                     <a onclick="do_support()"><i class="icon-pencil"></i></a>
                                                 </td>
 
-                                            </tr>
+                                        </tr>
                                         </c:forEach>
                                         </tbody>
                                     </table>

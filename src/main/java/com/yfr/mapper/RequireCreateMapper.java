@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface RequireCreateMapper {
     List<RequireCreateInfo> queryMyList(int uid);
+
+    List<RequireCreateInfo> queryProList();
 }

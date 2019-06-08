@@ -1,7 +1,7 @@
 package com.yfr.enmus;
 
 public enum  UserEnums {
-    NONE(-1, "none"),UNDERCREATE(0, "创新团队"),POSTCREATE(1,"需求团队");
+    NONE(-1, "none"),UNDERCREATE(0, "创新团队"),REQUIRE(1,"需求团队"),ADMIN(2,"管理員");
     private Integer code;
     private String desc;
 

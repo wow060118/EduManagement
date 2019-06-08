@@ -8,4 +8,6 @@ import java.util.List;
 @Repository
 public interface PostCreateMapper {
     List<PostCreateInfo> queryMyList(int uid);
+
+    List<PostCreateInfo> queryProList();
 }

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yfr.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.yfr.pojo.User">
-    <id column="uid" jdbcType="INTEGER" property="uid" />
-    <result column="account" jdbcType="VARCHAR" property="account" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="type" jdbcType="INTEGER" property="type" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.yfr.pojo.User">
+        <id column="uid" jdbcType="INTEGER" property="uid"/>
+        <result column="account" jdbcType="VARCHAR" property="account"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+    </resultMap>
 
-  <select id="quireByAccountPassWord" resultType="com.yfr.pojo.User">
+    <select id="quireByAccountPassWord" resultType="com.yfr.pojo.User">
     SELECT * FROM `user`
     WHERE account = #{account} AND password = #{password}
   </select>
 
-  <insert id="insert" parameterType="com.yfr.pojo.User">
+    <insert id="insert" parameterType="com.yfr.pojo.User">
     INSERT INTO `user`(
       account,
       password,
@@ -30,4 +30,9 @@
       #{type}
     )
   </insert>
+
+
+    <select id="getUserList" resultType="com.yfr.pojo.User">
+    SELECT * FROM `user`
+  </select>
 </mapper>

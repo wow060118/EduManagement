@@ -18,4 +18,6 @@ public interface UnderCreateMapper {
     List<UnderCreateInfo> queryMyList(int uid);
 
     int delUnderInfo (int ucid);
+
+    List<UnderCreateInfo> queryProList();
 }

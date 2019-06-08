@@ -63,7 +63,7 @@ public class UserController extends BaseController{
             //根据用户类型返回对应页面，并查询基础信息
             switch (userList.get(0).getType()){
                 case 2:
-                    return "";
+                    return "/v0.3/main_page";
                 case 0:
 
                     return "/v0.3/main_page";
@@ -127,7 +127,14 @@ public class UserController extends BaseController{
         userInfo.setAccount(user.getAccount());
         userInfo.setUserType(UserEnums.fromCode(user.getType()).getDesc());
         userInfo.setUid(user.getUid()+"");
+        if(user.getType()==2){
+            userInfo.setAdmin(1);
+        }else {
+            userInfo.setAdmin(0);
+        }
         return userInfo;
     }
+
+
 
 }

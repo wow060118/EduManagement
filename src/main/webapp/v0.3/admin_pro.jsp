@@ -45,7 +45,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header bg-light">
-                                创新成果展示
+                                项目管理
                             </div>
 
                             <div class="card-body">
@@ -53,27 +53,50 @@
                                     <table class="table table-hover">
                                         <thead>
                                         <tr>
-                                            <th>小组名称</th>
+                                            <th>名称</th>
                                             <th>标题</th>
                                             <th>创建时间</th>
+                                            <th>项目类型</th>
                                             <th colspan=>操作</th>
                                         </tr>
                                         </thead>
                                         <tbody id="tbody">
-                                        <c:forEach items="${underList}" var="list">
+                                        <c:forEach items="${proList}" var="list">
                                             <tr>
 
                                                 <td>${list.teamName}</td>
                                                 <td>${list.title}</td>
                                                 <td>${list.createTime}</td>
                                                     <%--到时候添加方法--%>
-                                                <td>
-                                                    <a href="/pro/query/underInfo?ucid=${list.cid}"><i
-                                                            class="icon-docs"></i></a>
+                                                <c:if test="${list.type==0}">
+                                                    <td>本科生创新项目</td>
+                                                    <td>
+                                                        <a href="/pro/query/underInfo?ucid=${list.cid}"><i class="icon-docs"></i></a>
 
-                                                    <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
-                                                    <a onclick="do_support()"><i class="icon-pencil"></i></a>
-                                                </td>
+                                                        <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
+                                                        <a onclick="do_support()"><i class="icon-pencil"></i></a>
+                                                    </td>
+                                                </c:if>
+                                                <c:if test="${list.type==1}">
+                                                    <td>
+                                                    <td>研究生创新项目</td>
+
+                                                    <a href="/pro/query/underInfo?ucid=${list.cid}"><i class="icon-docs"></i></a>
+
+                                                        <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
+                                                        <a onclick="do_support()"><i class="icon-pencil"></i></a>
+                                                    </td>
+                                                </c:if>
+                                                <c:if test="${list.type==2}">
+                                                    <td>需求项目</td>
+
+                                                    <td>
+                                                        <a href="/pro/query/underInfo?ucid=${list.cid}"><i class="icon-docs"></i></a>
+
+                                                        <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
+                                                        <a onclick="do_support()"><i class="icon-pencil"></i></a>
+                                                    </td>
+                                                </c:if>
 
                                             </tr>
                                         </c:forEach>

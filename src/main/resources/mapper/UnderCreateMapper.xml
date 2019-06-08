@@ -54,6 +54,13 @@
         order by create_time desc
     </select>
 
+    <select id="queryProList" resultType="com.yfr.pojo.UnderCreateInfo">
+        select
+        <include refid="select_list"/>
+        from undercreate
+        order by create_time desc
+    </select>
+
     <select id="queryInfo" parameterType="java.lang.Integer" resultType="com.yfr.pojo.UnderCreateInfo">
         select
         <include refid="select_sql"/>

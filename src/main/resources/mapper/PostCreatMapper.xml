@@ -19,4 +19,11 @@
         where uid=#{uid}
         order by create_time desc
     </select>
+
+    <select id="queryProList" parameterType="java.lang.Integer" resultType="com.yfr.pojo.PostCreateInfo">
+        select
+        <include refid="select_list"/>
+        from postcreate
+        order by create_time desc
+    </select>
 </mapper>

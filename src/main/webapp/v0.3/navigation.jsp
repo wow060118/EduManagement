@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="sidebar">
     <nav class="sidebar-nav">
         <ul class="nav">
@@ -26,7 +26,7 @@
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a href="/pro/query/underlist" class="nav-link">
-                            <i class="icon icon-target"></i> 本科生创新成果展示
+                            <i class="icon icon-target"></i> 本科生创新项目展示
                         </a>
                     </li>
                 </ul>
@@ -34,7 +34,7 @@
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a href="/v0.3/post_create_pro.jsp" class="nav-link">
-                            <i class="icon icon-target"></i> 研究生创新成果展示
+                            <i class="icon icon-target"></i> 研究生创新项目展示
                         </a>
                     </li>
                 </ul>
@@ -82,6 +82,37 @@
                     </li>
                 </ul>
             </li>
+
+            <c:if test="${userInfo.admin==1}">
+            <li class="nav-title">管理</li>
+
+            <li class="nav-item nav-dropdown">
+                <a href="#" class="nav-link nav-dropdown-toggle">
+                    <i class="icon icon-umbrella"></i> 管理平台 <i class="fa fa-caret-left"></i>
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="/admin/getUserList" class="nav-link">
+                            <i class="icon icon-energy"></i> 用户管理
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="/admin/getProList" class="nav-link">
+                            <i class="icon icon-target"></i> 项目管理
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="/v0.3/my_chat.jsp" class="nav-link">
+                            <i class="icon icon-target"></i> 成果发布
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            </c:if>
         </ul>
     </nav>
 </div>

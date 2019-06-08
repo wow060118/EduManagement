@@ -26,7 +26,7 @@
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <input type="text" id="className" name="name"
-                                                   class="form-control" placeholder="项目名称">
+                                                   class="form-control" placeholder="用户名">
                                             <span class="input-group-btn">
                                                     <button id="selectCourse" type="button" class="btn btn-primary"><i
                                                             class="fa fa-search"></i>查找</button>
@@ -45,7 +45,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header bg-light">
-                                创新成果展示
+                                用户管理
                             </div>
 
                             <div class="card-body">
@@ -53,34 +53,38 @@
                                     <table class="table table-hover">
                                         <thead>
                                         <tr>
-                                            <th>小组名称</th>
-                                            <th>标题</th>
-                                            <th>创建时间</th>
+                                            <th>项目类型</th>
+                                            <th>项目名称</th>
+                                            <th>发布人</th>
+                                            <th>承接人</th>
+                                            <th>项目状态</th>
                                             <th colspan=>操作</th>
                                         </tr>
                                         </thead>
+
                                         <tbody id="tbody">
-                                        <c:forEach items="${underList}" var="list">
-                                            <tr>
+                                        <%--<c:forEach items="${userInfos}" var="list">--%>
+                                            <%--<tr>--%>
 
-                                                <td>${list.teamName}</td>
-                                                <td>${list.title}</td>
-                                                <td>${list.createTime}</td>
-                                                    <%--到时候添加方法--%>
-                                                <td>
-                                                    <a href="/pro/query/underInfo?ucid=${list.cid}"><i
-                                                            class="icon-docs"></i></a>
+                                                <%--<td>${list.userType}</td>--%>
+                                                <%--<td>${list.account}</td>--%>
+                                                <%--<td>${list.password}</td>--%>
+                                                <%--<td>${list.phone}</td>--%>
+                                                <%--<td>${list.email}</td>--%>
+                                                <%--<td colspan=>--%>
+                                                    <%--<a href="#"><i class="icon-pencil"></i></a>--%>
+                                                    <%--<a href="#"><i class="icon-trash"></i></a>--%>
+                                                <%--</td>--%>
 
-                                                    <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
-                                                    <a onclick="do_support()"><i class="icon-pencil"></i></a>
-                                                </td>
-
-                                            </tr>
-                                        </c:forEach>
+                                            <%--</tr>--%>
+                                        <%--</c:forEach>--%>
                                         </tbody>
+
                                     </table>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>

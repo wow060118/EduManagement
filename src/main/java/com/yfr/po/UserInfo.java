@@ -14,7 +14,7 @@ public class UserInfo {
 
     private String userType;
 
-
+    private int admin;
     public String getAccount() {
         return account;
     }
@@ -62,4 +62,13 @@ public class UserInfo {
     public void setUserType(String userType) {
         this.userType = userType;
     }
+
+    public int getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(int admin) {
+        this.admin = admin;
+    }
+
 }

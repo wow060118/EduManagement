@@ -86,6 +86,6 @@ public class ShowListPo  implements Comparable<ShowListPo>{
 
     @Override
     public int compareTo(ShowListPo o) {
-        return (int)(this.sortDate.getTime()-o.sortDate.getTime())/1000;
+        return (int)(o.sortDate.getTime()-this.sortDate.getTime())/1000;
     }
 }
