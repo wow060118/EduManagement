@@ -4,6 +4,7 @@ package com.yfr.controller;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.yfr.enmus.UserEnums;
+import com.yfr.po.AdminApplyInfo;
 import com.yfr.po.ShowListPo;
 import com.yfr.po.UserInfo;
 import com.yfr.pojo.User;
@@ -49,9 +50,11 @@ public class AdminUserController {
 
 
     @RequestMapping("/applyList")
-    public String applyList() {
-
-        return "";
+    public String applyList(HttpSession session) {
+        List<AdminApplyInfo> adminApplyInfos = adminService.queryApplyList();
+        System.out.println(JSON.toJSONString(adminApplyInfos));
+        session.setAttribute("adminApplyInfos",adminApplyInfos);
+        return "/v0.3/admin_apply";
     }
 
     private UserInfo buildUserInfo(User user){

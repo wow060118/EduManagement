@@ -1,17 +1,20 @@
 package com.yfr.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.yfr.mapper.ApplyMapper;
 import com.yfr.mapper.UnderCreateMapper;
 import com.yfr.po.CreateUnderInfoPo;
 import com.yfr.po.ShowListPo;
 import com.yfr.pojo.UnderCreateInfo;
+import com.yfr.redis.RedisUtil;
 import com.yfr.service.UnderCreateService;
 import com.yfr.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service("underCreateService")
@@ -23,18 +26,38 @@ public class UnderCreateServiceImpl implements UnderCreateService {
     @Autowired
     private ApplyMapper applyMapper;
 
+    @Autowired
+    private RedisUtil redisUtil;
+
     public int insert(UnderCreateInfo underCreateInfo) {
         int insert = underCreateMapper.insert(underCreateInfo);
         return insert;
     }
 
     public List<ShowListPo> queryUnderList() {
-        List<UnderCreateInfo> underCreateInfos = underCreateMapper.queryList();
+        Boolean flag = redisUtil.exists("underList",1);
         List<ShowListPo> lists = Lists.newArrayList();
-        underCreateInfos.forEach(v -> {
-            ShowListPo showListPo = buildShowListPo(v);
-            lists.add(showListPo);
-        });
+        System.out.println(flag);
+        if(!flag) {
+            System.out.println("使用数据库查询");
+            List<UnderCreateInfo> underCreateInfos = underCreateMapper.queryList();
+            underCreateInfos.forEach(v -> {
+                ShowListPo showListPo = buildShowListPo(v);
+                lists.add(showListPo);
+                redisUtil.lpush(1,"underList",JSON.toJSONString(showListPo));
+            });
+        }else {
+            System.out.println("使用redis查询");
+            Long num = redisUtil.llen("underList",1);
+            System.out.println(num);
+            List<String> lrange = redisUtil.lrange("underList",0, num-1,1);
+            lrange.forEach(v->{
+                JSONObject jsonObject = JSON.parseObject(v);
+                ShowListPo showListPo=jsonObject.toJavaObject(ShowListPo.class);
+                lists.add(showListPo);
+                Collections.reverse(lists);
+            });
+        }
         System.out.println("quneryUnderList:   " + JSON.toJSONString(lists));
         return lists;
     }

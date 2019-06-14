@@ -74,4 +74,10 @@
     <update id="updateStatus" parameterType="java.lang.Integer">
         update undercreate set status=#{status} where u_cid=#{ucid}
     </update>
+    <select id="getStatus" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select status
+        from undercreate where u_cid = #{ucid}
+    </select>
+
+
 </mapper>

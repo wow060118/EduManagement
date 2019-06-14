@@ -21,4 +21,8 @@
         select uid from apply where pid =#{pid} and protype=#{protype}
     </select>
 
+    <select id="queryApplyList" parameterType="java.lang.Integer" resultType="com.yfr.pojo.ApplyInfo">
+        select * from apply
+    </select>
+
 </mapper>

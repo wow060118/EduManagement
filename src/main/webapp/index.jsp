@@ -46,6 +46,11 @@
                             <i class="icon icon-target"></i> 没有账号？注册一个吧
                         </a>
                     </div>
+                    <div class="lowin-group">
+                        <a href="/redis/text/redis" class="nav-link active">
+                            <i class="icon icon-target"></i>    测试ridis
+                        </a>
+                    </div>
 
                 </form>
             </div>

@@ -214,9 +214,9 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <td>小车</td>
-                                                <td><a href="${file}" download="">1.txt</a></td>
-                                                <td>无快递</td>
+                                                <td>迷宫小车</td>
+                                                <td><a href="${file}" download="">第一组-迷宫小车.doc</a></td>
+                                                <td>23333300333333</td>
                                                 </tbody>
                                                 <tfoot>
                                                 <c:if test="${userInfo.uid==createUnderInfoPo.applyUid}">

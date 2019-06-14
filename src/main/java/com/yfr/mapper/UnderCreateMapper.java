@@ -23,4 +23,6 @@ public interface UnderCreateMapper {
     List<UnderCreateInfo> queryProList();
 
     int updateStatus(@Param("status") int status,@Param("ucid") int ucid);
+
+    int getStatus(int ucid);
 }

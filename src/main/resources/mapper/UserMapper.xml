@@ -35,4 +35,8 @@
     <select id="getUserList" resultType="com.yfr.pojo.User">
     SELECT * FROM `user`
   </select>
+
+    <select id="getAccount" resultType="java.lang.String" parameterType="java.lang.Integer">
+    SELECT account FROM `user` where uid=#{uid}
+  </select>
 </mapper>

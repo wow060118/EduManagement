@@ -1,10 +1,12 @@
 package com.yfr.service.impl;
 
 import com.google.common.collect.Lists;
-import com.yfr.mapper.PostCreateMapper;
-import com.yfr.mapper.RequireCreateMapper;
-import com.yfr.mapper.UnderCreateMapper;
+import com.yfr.enmus.ProType;
+import com.yfr.enmus.StatusEnums;
+import com.yfr.mapper.*;
+import com.yfr.po.AdminApplyInfo;
 import com.yfr.po.ShowListPo;
+import com.yfr.pojo.ApplyInfo;
 import com.yfr.pojo.PostCreateInfo;
 import com.yfr.pojo.RequireCreateInfo;
 import com.yfr.pojo.UnderCreateInfo;
@@ -26,22 +28,28 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private RequireCreateMapper requireCreateMapper;
 
+    @Autowired
+    private ApplyMapper applyMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
 
     @Override
     public List<ShowListPo> queryProList() {
         List<UnderCreateInfo> underCreateInfos = underCreateMapper.queryProList();
         List<PostCreateInfo> postCreateInfos = postCreateMapper.queryProList();
         List<RequireCreateInfo> requireCreateInfos = requireCreateMapper.queryProList();
-        List<ShowListPo> showList= Lists.newArrayList();
-        underCreateInfos.forEach(v->{
+        List<ShowListPo> showList = Lists.newArrayList();
+        underCreateInfos.forEach(v -> {
             ShowListPo showListPo = buildListShow(v);
             showList.add(showListPo);
         });
-        postCreateInfos.forEach(v->{
+        postCreateInfos.forEach(v -> {
             ShowListPo showListPo = buildListShow(v);
             showList.add(showListPo);
         });
-        requireCreateInfos.forEach(v->{
+        requireCreateInfos.forEach(v -> {
             ShowListPo showListPo = buildListShow(v);
             showList.add(showListPo);
         });
@@ -49,8 +57,39 @@ public class AdminServiceImpl implements AdminService {
         return showList;
     }
 
-    private ShowListPo buildListShow(RequireCreateInfo obj){
-        ShowListPo showListPo=new ShowListPo();
+    @Override
+    public List<AdminApplyInfo> queryApplyList() {
+        List<ApplyInfo> applyInfos = applyMapper.queryApplyList();
+        List<AdminApplyInfo> adminApplyInfos=Lists.newArrayList();
+        applyInfos.forEach(v->{
+            adminApplyInfos.add(buildApplyInfo(v));
+
+        });
+        return adminApplyInfos;
+    }
+
+    private AdminApplyInfo buildApplyInfo(ApplyInfo applyInfo){
+        AdminApplyInfo adminApplyInfo=new AdminApplyInfo();
+        String uName= userMapper.getAccount(applyInfo.getUid());
+        String cName=userMapper.getAccount(applyInfo.getCuid());
+        adminApplyInfo.setuName(uName);
+        adminApplyInfo.setcName(cName);
+        adminApplyInfo.setProType(ProType.fromCode(applyInfo.getProtype()).getDesc());
+        adminApplyInfo.setTitle(applyInfo.getTitle());
+        int status =-1;
+        switch (applyInfo.getProtype()){
+            case 0:
+                status=underCreateMapper.getStatus(applyInfo.getPid());
+                break;
+        }
+
+        adminApplyInfo.setStatus(StatusEnums.fromCode(status).getDesc());
+        return adminApplyInfo;
+    }
+
+
+    private ShowListPo buildListShow(RequireCreateInfo obj) {
+        ShowListPo showListPo = new ShowListPo();
         showListPo.setCreateTime(DateUtil.gainDate(obj.getCreateTime()));
         showListPo.setTeamName(obj.getCompanyName());
         showListPo.setTitle(obj.getTitle());
@@ -60,8 +99,8 @@ public class AdminServiceImpl implements AdminService {
         return showListPo;
     }
 
-    private ShowListPo buildListShow(PostCreateInfo obj){
-        ShowListPo showListPo=new ShowListPo();
+    private ShowListPo buildListShow(PostCreateInfo obj) {
+        ShowListPo showListPo = new ShowListPo();
         showListPo.setCreateTime(DateUtil.gainDate(obj.getCreateTime()));
         showListPo.setTeamName(obj.getTeamName());
         showListPo.setTitle(obj.getTitle());
@@ -71,8 +110,9 @@ public class AdminServiceImpl implements AdminService {
         showListPo.setType(obj.getType());
         return showListPo;
     }
-    private ShowListPo buildListShow(UnderCreateInfo obj){
-        ShowListPo showListPo=new ShowListPo();
+
+    private ShowListPo buildListShow(UnderCreateInfo obj) {
+        ShowListPo showListPo = new ShowListPo();
         showListPo.setCreateTime(DateUtil.gainDate(obj.getCreateTime()));
         showListPo.setTeamName(obj.getTeamName());
         showListPo.setTitle(obj.getTitle());

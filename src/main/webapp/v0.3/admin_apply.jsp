@@ -63,21 +63,21 @@
                                         </thead>
 
                                         <tbody id="tbody">
-                                        <%--<c:forEach items="${userInfos}" var="list">--%>
-                                            <%--<tr>--%>
+                                        <c:forEach items="${adminApplyInfos}" var="list">
+                                            <tr>
 
-                                                <%--<td>${list.userType}</td>--%>
-                                                <%--<td>${list.account}</td>--%>
-                                                <%--<td>${list.password}</td>--%>
-                                                <%--<td>${list.phone}</td>--%>
-                                                <%--<td>${list.email}</td>--%>
-                                                <%--<td colspan=>--%>
-                                                    <%--<a href="#"><i class="icon-pencil"></i></a>--%>
-                                                    <%--<a href="#"><i class="icon-trash"></i></a>--%>
-                                                <%--</td>--%>
+                                                <td>${list.proType}</td>
+                                                <td>${list.title}</td>
+                                                <td>${list.cName}</td>
+                                                <td>${list.uName}</td>
+                                                <td>${list.status}</td>
+                                                <td colspan=>
+                                                    <a href="#"><i class="icon-pencil"></i></a>
+                                                    <a href="#"><i class="icon-trash"></i></a>
+                                                </td>
 
-                                            <%--</tr>--%>
-                                        <%--</c:forEach>--%>
+                                            </tr>
+                                        </c:forEach>
                                         </tbody>
 
                                     </table>
