@@ -18,7 +18,7 @@
                     <div class="lowin-box lowin-login">
                         <div class="lowin-box-inner">
                             <form action="/apply/applyFile" method="post"  enctype="multipart/form-data" >
-                                <p>创新团队申请项目</p>
+                                <p>创新团队项目对接</p>
                                 <div class="lowin-group">
                                     <label>标题 </label>
                                     <input type="text" name="title" class="lowin-input">

@@ -266,6 +266,11 @@
     timer = setInterval(show_img, 1000); //建立周期定时器。
 
     function apply() {
+        var uid=localStorage.getItem("user");
+        console.log(uid);
+        if(uid==''){
+            window.location.href="/v0.3/login.jsp"
+        }
         //包装成JSON
         var applyInfo = {
             "uid": localStorage.getItem("user"),

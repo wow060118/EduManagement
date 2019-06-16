@@ -19,11 +19,11 @@
                 <img src="/Static/imgs/avatar-1.png" class="avatar avatar-sm" alt="logo">
                 <span class="small ml-1 d-md-down-none">${userInfo.account}</span>
             </a>
-
+            <c:if test="${userInfo!=null}">
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header">账户信息</div>
                 <a href="/v0.3/create_pro.jsp" class="dropdown-item">
-                    <i class="fa fa-page4"></i> 创建
+                    <i class="fa fa-pencil-alt"></i> 创建项目
                 </a>
                 <a href="#" class="dropdown-item">
                     <i class="fa fa-user"></i> 个人信息
@@ -47,6 +47,15 @@
                     <i class="fa fa-lock"></i> 注销
                 </a>
             </div>
+            </c:if>
+            <c:if test="${userInfo==null}">
+            <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-header">账户信息</div>
+                <a href="/v0.3/login.jsp" class="dropdown-item">
+                    <i class="fa fa-pencil-alt"></i> 登陆
+                </a>
+            </div>
+            </c:if>
         </li>
     </ul>
 </nav>

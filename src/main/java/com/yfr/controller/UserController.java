@@ -40,7 +40,7 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(User user, Model model, HttpSession session){
         if(user.getAccount() == null || user.getPassword() == null)
-            return "redirect:/index.jsp";
+            return "redirect:/login.jsp";
         try {
             String pwd= MD5Util.EncoderByMd5(user.getPassword());
             user.setPassword(pwd);
@@ -75,7 +75,7 @@ public class UserController extends BaseController{
                     return "/v0.3/main_page";
                 default:
                     model.addAttribute("msg","用户类型不明确");
-                    return "redirect:/index.jsp";
+                    return "redirect:/login.jsp";
             }
         }else{
             model.addAttribute("msg", BaseInfo.FAIL);
@@ -99,7 +99,7 @@ public class UserController extends BaseController{
 //                model.addAttribute("studentClassDepartmentPo",studentClassDepartmentPo);
                 return "/v0.3/index";
             default:
-                return "redirect:/index.jsp";
+                return "redirect:/login.jsp";
         }
     }
 
@@ -117,7 +117,7 @@ public class UserController extends BaseController{
         }
         int num = userService.insert(user);
         if(num>0){
-            return "redirect:/index.jsp";
+            return "redirect:/login.jsp";
         }
         return "/v0.3/register";
     }
