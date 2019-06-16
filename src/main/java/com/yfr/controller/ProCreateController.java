@@ -1,8 +1,6 @@
 package com.yfr.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.sun.deploy.net.HttpRequest;
-import com.sun.deploy.net.HttpResponse;
 import com.yfr.ResponsResult;
 import com.yfr.po.CreateUnderInfoPo;
 import com.yfr.po.ShowListPo;
