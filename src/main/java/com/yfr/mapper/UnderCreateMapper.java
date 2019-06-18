@@ -25,4 +25,6 @@ public interface UnderCreateMapper {
     int updateStatus(@Param("status") int status,@Param("ucid") int ucid);
 
     int getStatus(int ucid);
+
+    List<UnderCreateInfo> selectTitleLike(@Param("title") String title);
 }

@@ -43,7 +43,7 @@
     <select id="queryList" resultType="com.yfr.pojo.UnderCreateInfo">
         select
         <include refid="select_list"/>
-        from undercreate order by create_time desc limit 0 ,9
+        from undercreate order by create_time
     </select>
 
     <select id="queryMyList" resultType="com.yfr.pojo.UnderCreateInfo">
@@ -79,5 +79,10 @@
         from undercreate where u_cid = #{ucid}
     </select>
 
+    <select id="selectTitleLike" resultType="com.yfr.pojo.UnderCreateInfo" parameterType="java.lang.String">
+        select
+        <include refid="select_list"/>
+        from undercreate where title like CONCAT('%',#{title},'%')
+    </select>
 
 </mapper>

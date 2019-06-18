@@ -39,4 +39,8 @@
     <select id="getAccount" resultType="java.lang.String" parameterType="java.lang.Integer">
     SELECT account FROM `user` where uid=#{uid}
   </select>
+
+    <update id="updateUser" parameterType="com.yfr.pojo.User">
+         update `user` set password=#{password},email=#{email},phone=#{phone} where account=#{account}
+    </update>
 </mapper>

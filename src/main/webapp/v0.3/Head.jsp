@@ -25,13 +25,10 @@
                 <a href="/v0.3/create_pro.jsp" class="dropdown-item">
                     <i class="fa fa-pencil-alt"></i> 创建项目
                 </a>
-                <a href="#" class="dropdown-item">
-                    <i class="fa fa-user"></i> 个人信息
+                <a href="/v0.3/update_my_info.jsp" class="dropdown-item">
+                    <i class="fa fa-user"></i> 修改信息
                 </a>
 
-                <a href="#" class="dropdown-item">
-                    <i class="fa fa-envelope"></i> 消息
-                </a>
 
                 <div class="dropdown-header">设置</div>
 
@@ -43,7 +40,7 @@
                     <i class="fa fa-wrench"></i> 设置
                 </a>
 
-                <a href="#" class="dropdown-item">
+                <a href="/user/logout" class="dropdown-item">
                     <i class="fa fa-lock"></i> 注销
                 </a>
             </div>

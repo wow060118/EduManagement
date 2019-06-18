@@ -24,8 +24,8 @@ import java.io.InputStream;
 @RequestMapping("/apply")
 public class ApplyContorller extends BaseController {
 
-//    String path = "F:\\apache-tomcat-9.0.0.M22-windows-x64\\apache-tomcat-9.0.0.M22\\webapps\\ROOT\\savefile\\";
-    String path = "/home/apache-tomcat-9.0.14/webapps/ROOT/savefile/";
+    String path = "F:\\apache-tomcat-9.0.0.M22-windows-x64\\apache-tomcat-9.0.0.M22\\webapps\\ROOT\\savefile\\";
+//    String path = "/home/apache-tomcat-9.0.14/webapps/ROOT/savefile/";
 
     @Autowired
     private ApplyServiceImpl applyService;

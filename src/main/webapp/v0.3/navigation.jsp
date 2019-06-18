@@ -82,7 +82,7 @@
                 </ul>
             </li>
 
-            <c:if test="${userInfo.admin==1}">
+            <c:if test="${userInfo!=null&&userInfo.admin==1}">
             <li class="nav-title">管理</li>
 
             <li class="nav-item nav-dropdown">

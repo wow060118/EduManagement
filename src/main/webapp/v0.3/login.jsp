@@ -12,7 +12,7 @@
     <%@ include file="/v0.3/Resource.jsp" %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>教务管理系统</title>
+    <title>创新展示平台</title>
     <link rel="stylesheet" href="/Static/jquery/1.11.3/jquery.min.js">
     <link rel="stylesheet" href="/src/auth.css">
 

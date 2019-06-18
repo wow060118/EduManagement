@@ -11,4 +11,5 @@ public interface UserMapper {
     public int insert(User user);
     public List<User> getUserList();
     public String getAccount(int uid);
+    int updateUser(User user);
 }

@@ -1,8 +1,10 @@
 package com.yfr.controller;
 
 import com.yfr.BaseInfo;
+import com.yfr.ResponsResult;
 import com.yfr.enmus.UserEnums;
 import com.yfr.po.UserInfo;
+import com.yfr.po.UserUpdatePo;
 import com.yfr.pojo.Announcement;
 import com.yfr.pojo.User;
 import com.yfr.service.AnnouncementService;
@@ -127,6 +129,8 @@ public class UserController extends BaseController{
         userInfo.setAccount(user.getAccount());
         userInfo.setUserType(UserEnums.fromCode(user.getType()).getDesc());
         userInfo.setUid(user.getUid()+"");
+        userInfo.setEmail(user.getEmail());
+        userInfo.setPhone(user.getPhone());
         if(user.getType()==2){
             userInfo.setAdmin(1);
         }else {
@@ -135,6 +139,43 @@ public class UserController extends BaseController{
         return userInfo;
     }
 
+    @RequestMapping(value = "/update",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponsResult update(HttpSession session,@RequestBody UserUpdatePo updateInfo){
+        User user=new User();
+        user.setAccount(updateInfo.getAccount());
+        user.setEmail(updateInfo.getEmail());
+        user.setPhone(updateInfo.getPhone());
+        try {
+            String pwdold= MD5Util.EncoderByMd5(updateInfo.getPwdold());
 
+            user.setPassword(pwdold);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        List<User> userList = userService.quireByAccountPassWord(user);
+        if(userList.size()<0){
+            return failHandler("密码不正确");
+        }else {
+            try {
+                String pwdnew = MD5Util.EncoderByMd5(updateInfo.getPwdnew());
+                user.setPassword(pwdnew);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            int i = userService.updateUser(user);
+            if(i>0){
+                session.removeAttribute("userInfo");
+                return inbound(null,"success");
+            }
+        }
+        return failHandler();
+    }
+
+    @RequestMapping(value = "/logout")
+    public String register(HttpSession session){
+       session.removeAttribute("userInfo");
+        return "/index";
+    }
 
 }

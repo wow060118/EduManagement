@@ -25,9 +25,9 @@ public class UnderCreateServiceImpl implements UnderCreateService {
 
     @Autowired
     private ApplyMapper applyMapper;
-
-    @Autowired
-    private RedisUtil redisUtil;
+//
+//    @Autowired
+//    private RedisUtil redisUtil;
 
     public int insert(UnderCreateInfo underCreateInfo) {
         int insert = underCreateMapper.insert(underCreateInfo);
@@ -35,29 +35,29 @@ public class UnderCreateServiceImpl implements UnderCreateService {
     }
 
     public List<ShowListPo> queryUnderList() {
-        Boolean flag = redisUtil.exists("underList",1);
+//        Boolean flag = redisUtil.exists("underList",1);
         List<ShowListPo> lists = Lists.newArrayList();
-        System.out.println(flag);
-        if(!flag) {
+//        System.out.println(flag);
+//        if(!flag) {
             System.out.println("使用数据库查询");
             List<UnderCreateInfo> underCreateInfos = underCreateMapper.queryList();
             underCreateInfos.forEach(v -> {
                 ShowListPo showListPo = buildShowListPo(v);
                 lists.add(showListPo);
-                redisUtil.lpush(1,"underList",JSON.toJSONString(showListPo));
+//                redisUtil.lpush(1,"underList",JSON.toJSONString(showListPo));
             });
-        }else {
-            System.out.println("使用redis查询");
-            Long num = redisUtil.llen("underList",1);
-            System.out.println(num);
-            List<String> lrange = redisUtil.lrange("underList",0, num-1,1);
-            lrange.forEach(v->{
-                JSONObject jsonObject = JSON.parseObject(v);
-                ShowListPo showListPo=jsonObject.toJavaObject(ShowListPo.class);
-                lists.add(showListPo);
-                Collections.reverse(lists);
-            });
-        }
+//        }else {
+//            System.out.println("使用redis查询");
+//            Long num = redisUtil.llen("underList",1);
+//            System.out.println(num);
+//            List<String> lrange = redisUtil.lrange("underList",0, num-1,1);
+//            lrange.forEach(v->{
+//                JSONObject jsonObject = JSON.parseObject(v);
+//                ShowListPo showListPo=jsonObject.toJavaObject(ShowListPo.class);
+//                lists.add(showListPo);
+//                Collections.reverse(lists);
+//            });
+//        }
         System.out.println("quneryUnderList:   " + JSON.toJSONString(lists));
         return lists;
     }
@@ -77,7 +77,25 @@ public class UnderCreateServiceImpl implements UnderCreateService {
     @Override
     public int delUnderInfo(int ucid) {
         int num = underCreateMapper.delUnderInfo(ucid);
+//        redisUtil.del(1,"underList");
+//        List<UnderCreateInfo> underCreateInfos = underCreateMapper.queryList();
+//        underCreateInfos.forEach(v -> {
+//            ShowListPo showListPo = buildShowListPo(v);
+//            redisUtil.lpush(1,"underList",JSON.toJSONString(showListPo));
+//        });
         return num;
+    }
+
+    @Override
+    public List<ShowListPo> selectTitleLike(String title) {
+        List<ShowListPo> lists = Lists.newArrayList();
+        List<UnderCreateInfo> underCreateInfos = underCreateMapper.selectTitleLike(title);
+        System.out.println(underCreateInfos);
+        underCreateInfos.forEach(v -> {
+            ShowListPo showListPo = buildShowListPo(v);
+            lists.add(showListPo);
+        });
+        return lists;
     }
 
 

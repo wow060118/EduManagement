@@ -78,11 +78,20 @@ public class ProController extends BaseController{
         System.out.println("del:ucid ="+ucid);
         int num = underCreateService.delUnderInfo(ucid);
         if(num<=0){
-            return "redirect:/v0.3/under_create_pro";
+            return "/v0.3/under_create_pro";
         }
         List<ShowListPo> showListPos = underCreateService.queryUnderList();
-        session.setAttribute("underInfo", JSON.toJSONString(showListPos));
-        return "redirect:/v0.3/under_create_pro";
+        session.setAttribute("underList", showListPos);
+        return "/v0.3/under_create_pro";
+    }
+
+    @RequestMapping("/query/like")
+    public String queryLike(HttpSession session,
+                            @RequestParam String title){
+        System.out.println(title);
+        List<ShowListPo> showListPos = underCreateService.selectTitleLike(title);
+        session.setAttribute("underList", showListPos);
+        return "/v0.3/under_create_pro";
     }
 
     @RequestMapping("/getfile")
@@ -91,20 +100,6 @@ public class ProController extends BaseController{
         CreateUnderInfoPo createUnderInfoPo = underCreateService.queryUnderInfo(ucid);
         File f=null;
         f = new File(createUnderInfoPo.getPicFile());
-//        switch (type) {
-//            case 0:
-//                f = new File(createUnderInfoPo.getPicFile());
-//                break;
-//            case 1:
-//                f = new File(createUnderInfoPo.getVideo());
-//                break;
-//            case 2:
-//                f = new File(createUnderInfoPo.getFile());
-//                break;
-//        }
-
-
-
         FileInputStream fis = null;
         ByteArrayOutputStream bos = null;
         try {

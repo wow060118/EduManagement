@@ -14,4 +14,6 @@ public interface UnderCreateService {
     CreateUnderInfoPo queryUnderInfo(int ucid);
 
     int delUnderInfo(int ucid);
+
+    List<ShowListPo> selectTitleLike(String title);
 }

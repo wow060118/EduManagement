@@ -28,8 +28,8 @@
                                             <input type="text" id="className" name="name"
                                                    class="form-control" placeholder="项目名称">
                                             <span class="input-group-btn">
-                                                    <button id="selectCourse" type="button" class="btn btn-primary"><i
-                                                            class="fa fa-search"></i>查找</button>
+                                                    <button id="selectCourse" type="button" class="btn btn-primary" onclick="select()"><i
+                                                            class="fa fa-search" ></i>查找</button>
                                                 </span>
                                         </div>
                                     </div>
@@ -95,7 +95,15 @@
     function do_support() {
         window.location.href = "/v0.3/under_item_show.jsp"
     }
-
+    function select() {
+        var title =document.getElementById("className").value;
+        console.valueOf(title);
+        $.ajax({
+                url: "${pageContext.request.contextPath}/pro/query/like?title="+title,
+                type: "post",
+            }
+        )
+    }
 </script>
 
 </body>
