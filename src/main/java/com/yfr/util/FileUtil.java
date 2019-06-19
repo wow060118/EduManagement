@@ -7,8 +7,8 @@ public class FileUtil {
 
         OutputStream os = null;
         try {
-            String path = "F:\\apache-tomcat-9.0.0.M22-windows-x64\\apache-tomcat-9.0.0.M22\\webapps\\ROOT\\savefile";
-//            String path ="/home/apache-tomcat-9.0.14/webapps/ROOT/savefile/";
+//            String path = "F:\\apache-tomcat-9.0.0.M22-windows-x64\\apache-tomcat-9.0.0.M22\\webapps\\ROOT\\savefile";
+            String path ="/home/apache-tomcat-9.0.14/webapps/ROOT/savefile/";
             // 2、保存到临时文件
             // 1K的数据缓冲
             byte[] bs = new byte[1024];
