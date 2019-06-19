@@ -63,15 +63,13 @@
                                         <c:forEach items="${underList}" var="list">
                                             <tr>
 
-                                                <td>${list.teamName}</td>
+                                                <td id="teamName">${list.teamName}</td>
                                                 <td>${list.title}</td>
                                                 <td>${list.createTime}</td>
                                                     <%--到时候添加方法--%>
                                                 <td>
                                                     <a href="/pro/query/underInfo?ucid=${list.cid}"><i
                                                             class="icon-docs"></i></a>
-
-                                                    <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
                                                     <a onclick="do_support()"><i class="icon-pencil"></i></a>
                                                 </td>
 
@@ -93,7 +91,8 @@
 
 <script type="text/javascript">
     function do_support() {
-        window.location.href = "/v0.3/under_item_show.jsp"
+        window.localStorage.setItem("teamName",document.getElementById("teamName").innerText);
+        window.location.href = "/v0.3/my_chat.jsp"
     }
     function select() {
         var title =document.getElementById("className").value;

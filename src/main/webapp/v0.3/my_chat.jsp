@@ -272,7 +272,7 @@
                                                         <li>
                                                             <div class="a_friend">
                                                                 <div class="friend" onclick="change()">
-                                                                    <div class="name" >songshuang</div>
+                                                                    <div class="name" id="name">songshuang</div>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -318,7 +318,7 @@
 <%@include file="JSResource.jsp" %>
 
 <script>
-
+    document.getElementById("name").innerText=window.localStorage.getItem("teamName");
     function change(){
         alert("111")
     }

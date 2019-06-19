@@ -33,7 +33,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header bg-light">
-                                本科生创新项目
+                                需求项目
                             </div>
 
                             <div class="card-body">
@@ -42,7 +42,7 @@
                                         <thead>
                                         <tr>
                                             <th>标题：</th>
-                                            <th>迷宫小车</th>
+                                            <th>	具有自组网功能的人防电声报警控制器</th>
                                         </tr>
                                         </thead>
                                         <tbody id="tbody">
@@ -100,6 +100,14 @@
 
 <script>
     index = 0;
+
+    function apply() {
+        var uid = localStorage.getItem("user");
+        console.log(uid);
+        if (uid == '') {
+            window.location.href = "/v0.3/login.jsp"
+        }
+    }
 
     function show_img() {
         imgs = document.getElementById("shidian_img").children;

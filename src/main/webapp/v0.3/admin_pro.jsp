@@ -61,6 +61,34 @@
                                         </tr>
                                         </thead>
                                         <tbody id="tbody">
+                                        <tr>
+
+                                            <td>刘立柱组</td>
+                                            <td>水溶性丙烯酸酯特种胶黏剂</td>
+                                            <td>2017-12-20</td>
+                                            <td>研究生创新项目</td>
+                                            <td>
+                                                <a href="/v0.3/post_item.jsp"><i
+                                                        class="icon-docs"></i></a>
+
+                                                <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>颜颐欣</td>
+                                            <td>具有自组网功能的人防电声报警控制器</td>
+                                            <td>2019.5.13</td>
+                                            <td>需求项目</td>
+
+                                            <td>
+                                                <a href="/v0.3/require_item_show.jsp"><i
+                                                        class="icon-docs"></i></a>
+
+                                                <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
+                                            </td>
+                                        </tr>
                                         <c:forEach items="${proList}" var="list">
                                             <tr>
 
@@ -71,30 +99,30 @@
                                                 <c:if test="${list.type==0}">
                                                     <td>本科生创新项目</td>
                                                     <td>
-                                                        <a href="/pro/query/underInfo?ucid=${list.cid}"><i class="icon-docs"></i></a>
+                                                        <a href="/pro/query/underInfo?ucid=${list.cid}"><i
+                                                                class="icon-docs"></i></a>
 
-                                                        <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
-                                                        <a onclick="do_support()"><i class="icon-pencil"></i></a>
+                                                        <a href="/pro/del/under?ucid=${list.cid}"><i
+                                                                class="icon-trash"></i></a>
+
                                                     </td>
                                                 </c:if>
                                                 <c:if test="${list.type==1}">
-                                                    <td>
                                                     <td>研究生创新项目</td>
-
-                                                    <a href="/pro/query/underInfo?ucid=${list.cid}"><i class="icon-docs"></i></a>
-
-                                                        <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
-                                                        <a onclick="do_support()"><i class="icon-pencil"></i></a>
+                                                    <td>
+                                                        <a href="/pro/query/underInfo?ucid=${list.cid}"><i
+                                                                class="icon-docs"></i></a>
+                                                        <a href="/pro/del/under?ucid=${list.cid}"><i
+                                                                class="icon-trash"></i></a>
                                                     </td>
                                                 </c:if>
                                                 <c:if test="${list.type==2}">
                                                     <td>需求项目</td>
-
                                                     <td>
-                                                        <a href="/pro/query/underInfo?ucid=${list.cid}"><i class="icon-docs"></i></a>
-
-                                                        <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
-                                                        <a onclick="do_support()"><i class="icon-pencil"></i></a>
+                                                        <a href="/pro/query/underInfo?ucid=${list.cid}"><i
+                                                                class="icon-docs"></i></a>
+                                                        <a href="/pro/del/under?ucid=${list.cid}"><i
+                                                                class="icon-trash"></i></a>
                                                     </td>
                                                 </c:if>
 

@@ -52,9 +52,8 @@
                     </li>
                 </ul>
             </li>
-
+            <c:if test="${userInfo!=null}">
             <li class="nav-title">更多</li>
-
             <li class="nav-item nav-dropdown">
                 <a href="#" class="nav-link nav-dropdown-toggle">
                     <i class="icon icon-umbrella"></i> 其他 <i class="fa fa-caret-left"></i>
@@ -81,6 +80,7 @@
                     </li>
                 </ul>
             </li>
+            </c:if>
 
             <c:if test="${userInfo!=null&&userInfo.admin==1}">
             <li class="nav-title">管理</li>

@@ -61,11 +61,15 @@
                                         </thead>
                                         <tbody id="tbody">
                                         <tr>
-                                            <td>颜颐欣</td>
+                                            <td id="teamName">颜颐欣</td>
                                             <td>具有自组网功能的人防电声报警控制器</td>
                                             <td>2019.5.13</td>
                                             <%--到时候添加方法--%>
-                                            <td onclick="details()">详情</td>
+                                            <td onclick="details()">
+                                                <a href="/v0.3/require_item_show.jsp"><i
+                                                        class="icon-docs"></i></a>
+                                                <a onclick="do_support()"><i class="icon-pencil">
+                                            </td>
                                         </tr>
 
                                         </tbody>
@@ -84,7 +88,8 @@
 <%@include file="JSResource.jsp"%>
 <script type="text/javascript">
     function details() {
-        window.location.href="/v0.3/require_item_show.jsp"
+        window.localStorage.setItem("teamName",document.getElementById("teamName").innerText);
+        window.location.href="/v0.3/my_chat.jsp"
     }
 
 </script>
