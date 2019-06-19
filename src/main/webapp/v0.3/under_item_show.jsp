@@ -245,7 +245,7 @@
 <%@include file="JSResource.jsp" %>
 
 <script>
-
+    var status = 0;
     index = 0;
 
     function show_img() {
@@ -302,23 +302,55 @@
     }
 
     function update() {
-        document.getElementById("title_in").style.visibility = "visible";
-        document.getElementById("teamName_in").style.visibility = "visible";
-        document.getElementById("school_in").style.visibility = "visible";
-        document.getElementById("phone_in").style.visibility = "visible";
-        document.getElementById("email_in").style.visibility = "visible";
-        document.getElementById("student_in").style.visibility = "visible";
-        document.getElementById("teacher_in").style.visibility = "visible";
-        document.getElementById("money_in").style.visibility = "visible";
+        if (status == 0) {
 
-        document.getElementById("title_td").style.display = "none";
-        document.getElementById("teamName_td").style.display = "none";
-        document.getElementById("school_td").style.display = "none";
-        document.getElementById("phone_td").style.display = "none";
-        document.getElementById("email_td").style.display = "none";
-        document.getElementById("student_td").style.display = "none";
-        document.getElementById("teacher_td").style.display = "none";
-        document.getElementById("money_td").style.display = "none";
+            document.getElementById("title_in").style.visibility = "visible";
+            document.getElementById("teamName_in").style.visibility = "visible";
+            document.getElementById("school_in").style.visibility = "visible";
+            document.getElementById("phone_in").style.visibility = "visible";
+            document.getElementById("email_in").style.visibility = "visible";
+            document.getElementById("student_in").style.visibility = "visible";
+            document.getElementById("teacher_in").style.visibility = "visible";
+            document.getElementById("money_in").style.visibility = "visible";
+
+            document.getElementById("title_td").style.display = "none";
+            document.getElementById("teamName_td").style.display = "none";
+            document.getElementById("school_td").style.display = "none";
+            document.getElementById("phone_td").style.display = "none";
+            document.getElementById("email_td").style.display = "none";
+            document.getElementById("student_td").style.display = "none";
+            document.getElementById("teacher_td").style.display = "none";
+            document.getElementById("money_td").style.display = "none";
+            status =1;
+        }else {
+            document.getElementById("title_in").style.visibility = "hidden";
+            document.getElementById("teamName_in").style.visibility = "hidden";
+            document.getElementById("school_in").style.visibility = "hidden";
+            document.getElementById("phone_in").style.visibility = "hidden";
+            document.getElementById("email_in").style.visibility = "hidden";
+            document.getElementById("student_in").style.visibility = "hidden";
+            document.getElementById("teacher_in").style.visibility = "hidden";
+            document.getElementById("money_in").style.visibility = "hidden";
+
+            document.getElementById("title_td").style.display = "";
+            document.getElementById("teamName_td").style.display = "";
+            document.getElementById("school_td").style.display = "";
+            document.getElementById("phone_td").style.display = "";
+            document.getElementById("email_td").style.display = "";
+            document.getElementById("student_td").style.display = "";
+            document.getElementById("teacher_td").style.display = "";
+            document.getElementById("money_td").style.display = "";
+
+            document.getElementById("title_td").innerText = document.getElementById("title_in").value;
+            document.getElementById("teamName_td").style.display = document.getElementById("teamName_in").value;
+            document.getElementById("school_td").style.display = document.getElementById("school_in").value;
+            document.getElementById("phone_td").style.display = document.getElementById("phone_in").value;
+            document.getElementById("email_td").style.display = document.getElementById("email_in").value;
+            document.getElementById("student_td").style.display = document.getElementById("student_in").value;
+            document.getElementById("teacher_td").style.display = document.getElementById("teacher_in").value;
+            document.getElementById("money_td").style.display = document.getElementById("money_in").value;
+            status = 0;
+        }
     }
 
     function post() {

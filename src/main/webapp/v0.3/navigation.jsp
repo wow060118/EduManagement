@@ -113,7 +113,7 @@
                 </ul>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a href="/v0.3/my_chat.jsp" class="nav-link">
+                        <a href="/v0.3/admin_create_achievement.jsp" class="nav-link">
                             <i class="icon icon-target"></i> 成果发布
                         </a>
                     </li>

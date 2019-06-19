@@ -182,7 +182,7 @@
     function details2() {
         window.location.href = "/v0.3/achievement.jsp"
     }
-    function details2() {
+    function details1() {
         window.location.href = "/v0.3/achievement1.jsp"
     }
 
