@@ -63,15 +63,15 @@
                                         <tbody id="tbody">
                                         <tr>
 
-                                            <td>刘立柱组</td>
-                                            <td>水溶性丙烯酸酯特种胶黏剂</td>
-                                            <td>2017-12-20</td>
-                                            <td>研究生创新项目</td>
-                                            <td>
+                                            <td id="team">刘立柱组</td>
+                                            <td id="title">水溶性丙烯酸酯特种胶黏剂</td>
+                                            <td id="time">2017-12-20</td>
+                                            <td id="type">研究生创新项目</td>
+                                            <td id="ope">
                                                 <a href="/v0.3/post_item.jsp"><i
                                                         class="icon-docs"></i></a>
 
-                                                <a href="/pro/del/under?ucid=${list.cid}"><i class="icon-trash"></i></a>
+                                                <a onclick="deleteP()"><i class="icon-trash"></i></a>
                                             </td>
                                         </tr>
 
@@ -102,7 +102,7 @@
                                                         <a href="/pro/query/underInfo?ucid=${list.cid}"><i
                                                                 class="icon-docs"></i></a>
 
-                                                        <a href="/pro/del/under?ucid=${list.cid}"><i
+                                                        <a href="/admin/del/under?ucid=${list.cid}"><i
                                                                 class="icon-trash"></i></a>
 
                                                     </td>
@@ -145,6 +145,13 @@
 <script type="text/javascript">
     function do_support() {
         window.location.href = "/v0.3/under_item_show.jsp"
+    }
+    function deleteP() {
+        document.getElementById("team").style.display="none";
+        document.getElementById("title").style.display="none";
+        document.getElementById("time").style.display="none";
+        document.getElementById("type").style.display="none";
+        document.getElementById("ope").style.display="none";
     }
 
 </script>

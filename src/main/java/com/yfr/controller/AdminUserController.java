@@ -10,10 +10,12 @@ import com.yfr.po.UserInfo;
 import com.yfr.pojo.User;
 import com.yfr.service.AdminService;
 import com.yfr.service.impl.AdminServiceImpl;
+import com.yfr.service.impl.UnderCreateServiceImpl;
 import com.yfr.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -25,6 +27,8 @@ public class AdminUserController {
     private UserServiceImpl userService;
     @Autowired
     private AdminServiceImpl adminService;
+    @Autowired
+    private UnderCreateServiceImpl underCreateService;
     @RequestMapping("/getUserList")
     public String getUserList(HttpSession session){
         List<User> userList = userService.getUserList();
@@ -66,5 +70,19 @@ public class AdminUserController {
         userInfo.setEmail(user.getEmail());
         userInfo.setUid(user.getUid()+"");
         return userInfo;
+    }
+
+    @RequestMapping("/del/under")
+    public String delUnderInfo(
+            HttpSession session,
+            @RequestParam int ucid){
+        System.out.println("del:ucid ="+ucid);
+        int num = underCreateService.delUnderInfo(ucid);
+        if(num<=0){
+            return "/v0.3/admin_pro";
+        }
+        List<ShowListPo> showListPos = underCreateService.queryUnderList();
+        session.setAttribute("proList", showListPos);
+        return "redirect:/v0.3/admin_pro.jsp";
     }
 }

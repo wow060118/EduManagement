@@ -342,13 +342,13 @@
             document.getElementById("money_td").style.display = "";
 
             document.getElementById("title_td").innerText = document.getElementById("title_in").value;
-            document.getElementById("teamName_td").style.display = document.getElementById("teamName_in").value;
-            document.getElementById("school_td").style.display = document.getElementById("school_in").value;
-            document.getElementById("phone_td").style.display = document.getElementById("phone_in").value;
-            document.getElementById("email_td").style.display = document.getElementById("email_in").value;
-            document.getElementById("student_td").style.display = document.getElementById("student_in").value;
-            document.getElementById("teacher_td").style.display = document.getElementById("teacher_in").value;
-            document.getElementById("money_td").style.display = document.getElementById("money_in").value;
+            document.getElementById("teamName_td").innerText= document.getElementById("teamName_in").value;
+            document.getElementById("school_td").innerText = document.getElementById("school_in").value;
+            document.getElementById("phone_td").innerText = document.getElementById("phone_in").value;
+            document.getElementById("email_td").innerText = document.getElementById("email_in").value;
+            document.getElementById("student_td").innerText = document.getElementById("student_in").value;
+            document.getElementById("teacher_td").innerText = document.getElementById("teacher_in").value;
+            document.getElementById("money_td").innerText = document.getElementById("money_in").value;
             status = 0;
         }
     }

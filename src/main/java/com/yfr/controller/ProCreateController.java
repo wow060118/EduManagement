@@ -35,7 +35,7 @@ public class ProCreateController extends BaseController {
     private UnderCreateServiceImpl underCreateService;
 
     @RequestMapping("/create/under")
-    public String underCreatePro(
+    public String underCreatePro(HttpSession session,
                                         @RequestParam("uid") int uid,
                                         @RequestParam("title") String title,
                                         @RequestParam("teamName") String teamName,
@@ -82,6 +82,8 @@ public class ProCreateController extends BaseController {
         underCreateInfo.setType(0);
         System.out.println(JSON.toJSONString(underCreateInfo));
         int num = underCreateService.insert(underCreateInfo);
+        List<ShowListPo> underCreateInfos = underCreateService.queryUnderList();
+        session.setAttribute("underList",underCreateInfos);
         if (num > 0) {
             return "redirect:/v0.3/under_create_pro.jsp";
         } else {
