@@ -131,14 +131,14 @@
                                         <td>耳声发射检测仪</td>
                                         <td>2019.5.20</td>
                                         <%--到时候添加方法--%>
-                                        <td onclick="details()">详情</td>
+                                        <td onclick="details1()">详情</td>
                                     </tr>
                                     <tr>
                                         <td>颜颐欣</td>
                                         <td>具有自组网功能的人防电声报警控制器</td>
                                         <td>2019.5.20</td>
                                         <%--到时候添加方法--%>
-                                        <td onclick="details()">详情</td>
+                                        <td onclick="details2()">详情</td>
                                     </tr>
 
                                     <tr>
@@ -146,21 +146,21 @@
                                         <td>干纤维缠绕复合材料气瓶</td>
                                         <td>2019.5.20</td>
                                         <%--到时候添加方法--%>
-                                        <td onclick="details()">详情</td>
+                                        <td>详情</td>
                                     </tr>
                                     <tr>
                                         <td>丁喜波</td>
                                         <td>智能化可燃性气体传感器 & 智能家居安防系列产品</td>
                                         <td>2019.5.20</td>
                                         <%--到时候添加方法--%>
-                                        <td onclick="details()">详情</td>
+                                        <td>详情</td>
                                     </tr>
                                     <tr>
                                         <td>许家忠</td>
                                         <td>四自由度缠绕机</td>
                                         <td>2019.5.20</td>
                                         <%--到时候添加方法--%>
-                                        <td onclick="details()">详情</td>
+                                        <td>详情</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -179,8 +179,11 @@
     console.log(uid);
     window.localStorage.setItem("user", uid);
 
-    function details() {
+    function details2() {
         window.location.href = "/v0.3/achievement.jsp"
+    }
+    function details2() {
+        window.location.href = "/v0.3/achievement1.jsp"
     }
 
 
