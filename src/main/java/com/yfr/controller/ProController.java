@@ -91,7 +91,7 @@ public class ProController extends BaseController{
         System.out.println(title);
         List<ShowListPo> showListPos = underCreateService.selectTitleLike(title);
         session.setAttribute("underList", showListPos);
-        return "/v0.3/under_create_pro";
+        return "redirect:/v0.3/under_create_pro.jsp";
     }
 
     @RequestMapping("/getfile")

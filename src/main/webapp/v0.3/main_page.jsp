@@ -3,15 +3,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
-    <%@ include file ="Resource.jsp"%>
+    <%@ include file="/v0.3/Resource.jsp" %>
     <title>教务管理系统</title>
 </head>
 <body class="sidebar-fixed header-fixed">
 <div class="page-wrapper">
-    <%@include file="Head.jsp"%>
+    <%@include file="/v0.3/Head.jsp" %>
 
     <div class="main-container">
-        <%@include file="navigation.jsp" %>
+        <%@include file="/v0.3/navigation.jsp" %>
 
 
         <div class="content">
@@ -37,23 +37,26 @@
                     <div class="col-md-9 mb-4">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home">首页公告</a>
+                                <a class="nav-link active" data-toggle="tab" href="#home" role="tab"
+                                   aria-controls="home">首页公告</a>
                             </li>
-    
+
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-controls="profile">要闻</a>
+                                <a class="nav-link" data-toggle="tab" href="#profile" role="tab"
+                                   aria-controls="profile">要闻</a>
                             </li>
-    
+
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#messages" role="tab" aria-controls="messages">科技人物介绍</a>
+                                <a class="nav-link" data-toggle="tab" href="#messages" role="tab"
+                                   aria-controls="messages">科技人物介绍</a>
                             </li>
                         </ul>
-    
+
                         <div class="tab-content">
                             <div class="tab-pane active" id="home" role="tabpanel">
 
                             </div>
-    
+
                             <div class="tab-pane" id="profile" role="tabpanel">
                                 <ul>
                                     <li>
@@ -73,7 +76,7 @@
                                     </li>
                                 </ul>
                             </div>
-    
+
                             <div class="tab-pane" id="messages" role="tabpanel">
                                 <ul>
                                     <li>
@@ -118,38 +121,24 @@
                                     <tr>
                                         <td>林海军</td>
                                         <td>耳声发射检测仪</td>
-                                        <td>2019.5.20</td>
+                                        <td>2019-5-20</td>
                                         <%--到时候添加方法--%>
-                                        <td onclick="details()">详情</td>
+                                        <td onclick="details1()">详情</td>
                                     </tr>
                                     <tr>
                                         <td>颜颐欣</td>
                                         <td>具有自组网功能的人防电声报警控制器</td>
-                                        <td>2019.5.20</td>
+                                        <td>2019-5-20</td>
                                         <%--到时候添加方法--%>
-                                        <td onclick="details()">详情</td>
+                                        <td onclick="details2()">详情</td>
                                     </tr>
 
-                                    <tr>
-                                        <td>许家忠</td>
-                                        <td>干纤维缠绕复合材料气瓶</td>
-                                        <td>2019.5.20</td>
+                                    <tr id="addtr" style="display: none">
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>2019-6-21</td>
                                         <%--到时候添加方法--%>
-                                        <td onclick="details()">详情</td>
-                                    </tr>
-                                    <tr>
-                                        <td>丁喜波</td>
-                                        <td>智能化可燃性气体传感器 & 智能家居安防系列产品</td>
-                                        <td>2019.5.20</td>
-                                        <%--到时候添加方法--%>
-                                        <td onclick="details()">详情</td>
-                                    </tr>
-                                    <tr>
-                                        <td>许家忠</td>
-                                        <td>四自由度缠绕机</td>
-                                        <td>2019.5.20</td>
-                                        <%--到时候添加方法--%>
-                                        <td onclick="details()">详情</td>
+                                        <td onclick="details2()">详情</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -161,14 +150,33 @@
         </div>
     </div>
 </div>
-<%@include file="JSResource.jsp"%>
+<%@include file="/v0.3/JSResource.jsp" %>
 
 <script type="text/javascript">
     var uid = document.getElementById("uid").innerText;
     console.log(uid);
-    window.localStorage.setItem("user",uid);
-    function details() {
-        window.location.href="/v0.3/achievement.jsp"
+    window.localStorage.setItem("user", uid);
+
+    window.localStorage.setItem("prodel", 1);
+    window.localStorage.setItem("userdel", 1);
+
+    var flag = window.localStorage.getItem("addacv");
+    if (flag == 1) {
+        document.getElementById("addtr").style.display = "";
+    }
+
+    function details2() {
+        window.location.href = "/v0.3/achievement.jsp"
+    }
+
+    function details1() {
+        window.location.href = "/v0.3/achievement1.jsp"
+    }
+
+    function details2() {
+
+        window.location.href = "/v0.3/achievement2.jsp";
+
     }
 
 

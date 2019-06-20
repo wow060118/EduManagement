@@ -1,5 +1,6 @@
 package com.yfr.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.yfr.enmus.ProType;
 import com.yfr.enmus.StatusEnums;
@@ -45,14 +46,15 @@ public class AdminServiceImpl implements AdminService {
             ShowListPo showListPo = buildListShow(v);
             showList.add(showListPo);
         });
-        postCreateInfos.forEach(v -> {
-            ShowListPo showListPo = buildListShow(v);
-            showList.add(showListPo);
-        });
-        requireCreateInfos.forEach(v -> {
-            ShowListPo showListPo = buildListShow(v);
-            showList.add(showListPo);
-        });
+//        postCreateInfos.forEach(v -> {
+//            ShowListPo showListPo = buildListShow(v);
+//            showList.add(showListPo);
+//        });
+//        requireCreateInfos.forEach(v -> {
+//            ShowListPo showListPo = buildListShow(v);
+//            showList.add(showListPo);
+//        });
+        System.out.println("listpo"+ JSON.toJSONString(showList));
         Collections.sort(showList);
         return showList;
     }
@@ -88,28 +90,29 @@ public class AdminServiceImpl implements AdminService {
     }
 
 
-    private ShowListPo buildListShow(RequireCreateInfo obj) {
-        ShowListPo showListPo = new ShowListPo();
-        showListPo.setCreateTime(DateUtil.gainDate(obj.getCreateTime()));
-        showListPo.setTeamName(obj.getCompanyName());
-        showListPo.setTitle(obj.getTitle());
-        showListPo.setCid(obj.getRcid());
-        showListPo.setUid(obj.getUid());
-        showListPo.setType(obj.getType());
-        return showListPo;
-    }
-
-    private ShowListPo buildListShow(PostCreateInfo obj) {
-        ShowListPo showListPo = new ShowListPo();
-        showListPo.setCreateTime(DateUtil.gainDate(obj.getCreateTime()));
-        showListPo.setTeamName(obj.getTeamName());
-        showListPo.setTitle(obj.getTitle());
-        showListPo.setCid(obj.getPcid());
-        showListPo.setUid(obj.getUid());
-        showListPo.setSortDate(obj.getCreateTime());
-        showListPo.setType(obj.getType());
-        return showListPo;
-    }
+//    private ShowListPo buildListShow(RequireCreateInfo obj) {
+//        ShowListPo showListPo = new ShowListPo();
+//        showListPo.setCreateTime(DateUtil.gainDate(obj.getCreateTime()));
+//        showListPo.setTeamName(obj.getCompanyName());
+//        showListPo.setTitle(obj.getTitle());
+//        showListPo.setCid(obj.getRcid());
+//        showListPo.setUid(obj.getUid());
+//        showListPo.setType(obj.getType());
+//        showListPo.setSortDate(obj.getCreateTime());
+//        return showListPo;
+//    }
+//
+//    private ShowListPo buildListShow(PostCreateInfo obj) {
+//        ShowListPo showListPo = new ShowListPo();
+//        showListPo.setCreateTime(DateUtil.gainDate(obj.getCreateTime()));
+//        showListPo.setTeamName(obj.getTeamName());
+//        showListPo.setTitle(obj.getTitle());
+//        showListPo.setCid(obj.getPcid());
+//        showListPo.setUid(obj.getUid());
+//        showListPo.setSortDate(obj.getCreateTime());
+//        showListPo.setType(obj.getType());
+//        return showListPo;
+//    }
 
     private ShowListPo buildListShow(UnderCreateInfo obj) {
         ShowListPo showListPo = new ShowListPo();

@@ -64,7 +64,7 @@
 
                                         <tbody id="tbody">
                                         <c:forEach items="${userInfos}" var="list">
-                                        <tr>
+                                        <tr id="${list.account}">
 
                                             <td>${list.userType}</td>
                                             <td>${list.account}</td>
@@ -72,8 +72,8 @@
                                             <td>${list.phone}</td>
                                             <td>${list.email}</td>
                                             <td colspan=>
-                                                <a href="#"><i class="icon-pencil"></i></a>
-                                                <a href="#"><i class="icon-trash"></i></a>
+                                                <a href="/v0.3/update_my_info.jsp"><i class="icon-pencil"></i></a>
+                                                <a onclick="deleteu(${list.account})"><i class="icon-trash"></i></a>
                                             </td>
 
                                         </tr>
@@ -99,7 +99,9 @@
     function do_support() {
         window.location.href = "/v0.3/under_item_show.jsp"
     }
-
+    function deleteu(id) {
+            document.getElementById(id).style.display = "none";
+    }
 </script>
 
 </body>

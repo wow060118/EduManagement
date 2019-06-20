@@ -77,11 +77,11 @@ public class UserController extends BaseController{
                     return "/v0.3/main_page";
                 default:
                     model.addAttribute("msg","用户类型不明确");
-                    return "redirect:/login.jsp";
+                    return "redirect:/v0.3/login.jsp";
             }
         }else{
             model.addAttribute("msg", BaseInfo.FAIL);
-            return "redirect:/index";
+            return "redirect:/v0.3/login.jsp";
         }
     }
 
@@ -119,7 +119,7 @@ public class UserController extends BaseController{
         }
         int num = userService.insert(user);
         if(num>0){
-            return "redirect:/login.jsp";
+            return "redirect:/v0.3/login.jsp";
         }
         return "/v0.3/register";
     }

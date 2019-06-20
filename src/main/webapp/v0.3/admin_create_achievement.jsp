@@ -18,7 +18,7 @@
                 <div class="lowin-wrapper">
                     <div class="lowin-box lowin-login">
                         <div class="lowin-box-inner">
-                            <form action="/procreate/create/under" method="post"  enctype="multipart/form-data" >
+
                                 <p>创新团队申请项目</p>
                                 <div class="lowin-group">
                                     <label>标题 </label>
@@ -60,11 +60,10 @@
                                     <img name="pic" id="preview" alt="" src="" name="pic" class="file_img" style="margin-top: 5px;margin-left: 12px; width: 158px; height: 230px;"/>
                                 </div>
 
-                                <button id="reg" class="lowin-btn login-btn">
+                                <button id="reg" onclick="add()" class="lowin-btn login-btn">
                                     提 交
                                 </button>
 
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -79,7 +78,10 @@
     $("#uid").val(localStorage.getItem("user"));
 
     // document.getElementById("uid").value = localStorage.getItem("user")
-
+    function add() {
+        window.localStorage.setItem("addacv",1);
+        window.location.href="/v0.3/main_page.jsp"
+    }
     function change() {
         var pic = document.getElementById("preview"),
             file = document.getElementById("picFile");

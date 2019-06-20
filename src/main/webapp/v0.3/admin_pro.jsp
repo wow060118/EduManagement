@@ -143,15 +143,35 @@
 <%@include file="JSResource.jsp" %>
 
 <script type="text/javascript">
+    var flag=window.localStorage.getItem("prodel");
     function do_support() {
         window.location.href = "/v0.3/under_item_show.jsp"
     }
+    if(flag==1){
+        document.getElementById("team").style.display = "";
+        document.getElementById("title").style.display = "";
+        document.getElementById("time").style.display = "";
+        document.getElementById("type").style.display = "";
+        document.getElementById("ope").style.display = "";
+    }
     function deleteP() {
-        document.getElementById("team").style.display="none";
-        document.getElementById("title").style.display="none";
-        document.getElementById("time").style.display="none";
-        document.getElementById("type").style.display="none";
-        document.getElementById("ope").style.display="none";
+        if(flag==0) {
+            document.getElementById("team").style.display = "none";
+            document.getElementById("title").style.display = "none";
+            document.getElementById("time").style.display = "none";
+            document.getElementById("type").style.display = "none";
+            document.getElementById("ope").style.display = "none";
+
+        }else {
+            document.getElementById("team").style.display = "";
+            document.getElementById("title").style.display = "";
+            document.getElementById("time").style.display = "";
+            document.getElementById("type").style.display = "";
+            document.getElementById("ope").style.display = "";
+            window.localStorage.removeItem("prodel");
+            window.localStorage.setItem("prodel",0);
+        }
+
     }
 
 </script>

@@ -22,9 +22,9 @@
                             <div class="card-body d-flex justify-content-between align-items-center">
                                 <div>
                                     <c:if test="${userInfo.uid==null}">
-                                    <span id="uid">${userInfo.uid}</span>
-                                    <span class="h4 d-block font-weight-normal mb-2">用户名称:${userInfo.account}</span>
-                                    <span class="font-weight-light">用户类型:${userInfo.userType}
+                                        <span id="uid">${userInfo.uid}</span>
+                                        <span class="h4 d-block font-weight-normal mb-2">用户名称:${userInfo.account}</span>
+                                        <span class="font-weight-light">用户类型:${userInfo.userType}
                                     </span>
                                     </c:if>
                                     <c:if test="${userInfo!=null}">
@@ -129,38 +129,24 @@
                                     <tr>
                                         <td>林海军</td>
                                         <td>耳声发射检测仪</td>
-                                        <td>2019.5.20</td>
+                                        <td>2019-5-20</td>
                                         <%--到时候添加方法--%>
                                         <td onclick="details1()">详情</td>
                                     </tr>
                                     <tr>
                                         <td>颜颐欣</td>
                                         <td>具有自组网功能的人防电声报警控制器</td>
-                                        <td>2019.5.20</td>
+                                        <td>2019-5-20</td>
                                         <%--到时候添加方法--%>
                                         <td onclick="details2()">详情</td>
                                     </tr>
 
-                                    <tr>
-                                        <td>许家忠</td>
-                                        <td>干纤维缠绕复合材料气瓶</td>
-                                        <td>2019.5.20</td>
+                                    <tr id="addtr" style="display: none">
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>2019-6-21</td>
                                         <%--到时候添加方法--%>
-                                        <td>详情</td>
-                                    </tr>
-                                    <tr>
-                                        <td>丁喜波</td>
-                                        <td>智能化可燃性气体传感器 & 智能家居安防系列产品</td>
-                                        <td>2019.5.20</td>
-                                        <%--到时候添加方法--%>
-                                        <td>详情</td>
-                                    </tr>
-                                    <tr>
-                                        <td>许家忠</td>
-                                        <td>四自由度缠绕机</td>
-                                        <td>2019.5.20</td>
-                                        <%--到时候添加方法--%>
-                                        <td>详情</td>
+                                        <td onclick="details2()">详情</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -179,11 +165,27 @@
     console.log(uid);
     window.localStorage.setItem("user", uid);
 
+    window.localStorage.setItem("prodel", 1);
+    window.localStorage.setItem("userdel", 1);
+
+    var flag = window.localStorage.getItem("addacv");
+    if (addacv == 1) {
+        document.getElementById("addtr").style.display = "";
+        window.location.href = "/v0.3/achievement2.jsp";
+    }
+
     function details2() {
         window.location.href = "/v0.3/achievement.jsp"
     }
+
     function details1() {
         window.location.href = "/v0.3/achievement1.jsp"
+    }
+
+    function details2() {
+
+        window.location.href = "/v0.3/achievement2.jsp";
+
     }
 
 
