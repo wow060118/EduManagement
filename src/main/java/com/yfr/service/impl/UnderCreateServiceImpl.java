@@ -83,6 +83,8 @@ public class UnderCreateServiceImpl implements UnderCreateService {
 //            ShowListPo showListPo = buildShowListPo(v);
 //            redisUtil.lpush(1,"underList",JSON.toJSONString(showListPo));
 //        });
+
+        System.out.println("111111");
         return num;
     }
 
